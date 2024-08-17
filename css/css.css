@@ -16,6 +16,7 @@ html {
   --padding2: 2rem;
   --moistRed: #ff003b;
   --lightBlue: #66afff;
+  --navBackground: #b5d9ff;
   --color-text: rgb(255, 255, 255);
   --color-bg: rgb(255, 255, 255);
   --color-bg-accent: #ecdcc0;
@@ -31,26 +32,39 @@ html {
   --boxShadowSlideButtons: 15px 15px black;
   --lightBlue: #a5c0de;
   --darkBlue: #466bc2;
-  --h3Count: 4rem;
-  --h2size: 1rem;
-  --paragraphFeature: 0.8rem;
+  --h2HeroHeader: calc(1.5rem + 1.5vw);
+  --h3Feature1: 5rem;
+  --h3Feature2: 5rem;
+  --h2Feature1: 1.4rem;
+  --paragraphFeature1: 0.9rem;
+  --h2Feature2: 1.4rem;
+  --paragraphFeature2: 0.9rem;
   --articleH5: 3rem;
   --articleParagraph: 0.8rem;
-  --articleButtonsFontSize: 1rem;
+  --articleButtonsFontSize: 1.5rem;
+  --paragraphHeroHeader: 1.3rem;
+  --paragraphJobOffers: 1.2rem;
+  --h3Article: 1.2rem;
+  --articleBackgroundText: 10rem;
+  --jobOffersButtonsFontSize: 1.5rem;
 }
-:root body {
+
+body {
   font-family: Roboto;
   background-color: var(--backgroundColor);
   overflow-x: hidden;
 }
-:root .active {
+
+.active {
   display: flex;
 }
-:root .disable-overflow {
+
+.disable-overflow {
   overflow-y: hidden;
 }
+
 @media (prefers-color-scheme: dark) {
-  :root :root {
+  :root {
     --color-text: papayawhip;
     --color-bg: navy;
     --color-bg-accent: #2626a0;
@@ -88,21 +102,11 @@ html {
 @keyframes mobileAnim {
   0% {
     opacity: 0;
-    transform: translateY(-250px);
+    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-@keyframes bounce {
-  0% {
-    opacity: 0;
-    transform: translateX(250px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 @keyframes bounce2 {
@@ -135,29 +139,34 @@ html {
     transform-origin: 0% 50%;
   }
 }
-:root nav .mobile-navigation-container {
+nav .mobile-navigation-container {
   display: flex;
   padding: var(--padding);
-  background-color: var(--navBackgroundColor);
+  background-color: var(--navBackground);
   height: 7vh;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content {
+nav .mobile-navigation-container .mobile-navigation-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .logo-img {
+nav .mobile-navigation-container .mobile-navigation-content .logo-img {
   width: 7rem;
   z-index: 14;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .logo-middle-img {
+nav .mobile-navigation-container .mobile-navigation-content .logo-middle-img {
+  margin-left: -2.2rem;
   width: 2rem;
   z-index: 14;
   animation: myAnim 5s ease 0s 1 normal forwards;
   animation-iteration-count: infinite;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger {
+nav .mobile-navigation-container .mobile-navigation-content .desktop-menu {
+  display: none;
+}
+nav .mobile-navigation-container .mobile-navigation-content .burger {
   position: relative;
   width: 40px;
   height: 30px;
@@ -166,10 +175,10 @@ html {
   display: block;
   z-index: 14;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger input {
+nav .mobile-navigation-container .mobile-navigation-content .burger input {
   display: none;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger span {
+nav .mobile-navigation-container .mobile-navigation-content .burger span {
   display: block;
   position: absolute;
   height: 4px;
@@ -181,87 +190,100 @@ html {
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(1) {
+nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(1) {
   top: 0px;
   transform-origin: left center;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(2) {
+nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(2) {
   top: 50%;
   transform: translateY(-50%);
   transform-origin: left center;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(3) {
+nav .mobile-navigation-container .mobile-navigation-content .burger span:nth-of-type(3) {
   top: 100%;
   transform-origin: left center;
   transform: translateY(-100%);
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(1) {
+nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(1) {
   transform: rotate(45deg);
   top: 0px;
   left: 5px;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(2) {
+nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(2) {
   width: 0%;
   opacity: 0;
 }
-:root nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(3) {
+nav .mobile-navigation-container .mobile-navigation-content .burger input:checked ~ span:nth-of-type(3) {
   transform: rotate(-45deg);
   top: 28px;
   left: 5px;
 }
-:root .mobile-menu {
-  font-family: Roboto;
-  font-size: 1rem;
+
+.mobile-menu {
+  font-size: 1.7rem;
+  box-shadow: 2px 0 5px -2px #000000;
   z-index: 1;
   display: none;
   position: fixed;
   z-index: 13;
   background-color: white;
   min-height: 100%;
-  width: 30vh;
+  width: 100vh;
   overflow: clip;
   overflow-y: hidden;
   justify-content: center;
   align-items: center;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(125deg, rgb(0, 0, 0) 0%, rgb(122, 143, 204) 0%, rgb(215, 245, 255) 100%);
 }
-:root .mobile-menu a {
+.mobile-menu a {
   text-decoration: none;
-  font-family: Roboto;
+  font-family: Anton;
   color: var(--backgroundColor);
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.511);
 }
-:root .mobile-menu ul {
+.mobile-menu a:hover {
+  font-weight: 600;
+}
+.mobile-menu a span {
+  color: var(--moistRed);
+}
+.mobile-menu ul {
   list-style: none;
-  margin-left: -2rem;
+  margin-left: -23rem;
 }
-:root .closed {
-  display: none;
+.mobile-menu ul li {
+  margin-top: 1rem;
 }
-:root .active {
+
+.active {
   display: flex;
   overflow: hidden;
   animation: mobileAnim 2s ease 0s 1 normal forwards;
 }
-:root hero .hero-container {
+
+hero .hero-container {
   padding: var(--padding2);
   position: relative;
   overflow: hidden;
   margin-bottom: 2rem;
   min-height: 100vh;
 }
-:root hero .hero-container h5 {
+hero .hero-container h5 {
   color: var(--navBackgroundColor);
   font-family: Anton;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 500;
   margin-top: 0.5rem;
   margin-bottom: -1.5rem;
   text-align: center;
   z-index: 2;
+  text-shadow: 2px 2px black;
 }
-:root hero .hero-container .background-circle-shape {
+hero .hero-container .background-circle-shape {
   background-color: var(--lightBlue);
-  width: 25rem;
-  height: 25rem;
+  width: 35rem;
+  height: 35rem;
   position: absolute;
   border-radius: 100%;
   overflow-x: hidden;
@@ -270,7 +292,7 @@ html {
   left: 14rem;
   animation: bounce 3s ease-in 0s 1 normal forwards;
 }
-:root hero .hero-container .background-triangle-shape {
+hero .hero-container .background-triangle-shape {
   width: 200px;
   height: 250px;
   aspect-ratio: 1;
@@ -281,7 +303,7 @@ html {
   top: 29.1rem;
   left: 3rem;
 }
-:root hero .hero-container .hero-content-top {
+hero .hero-container .hero-content-top {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -290,10 +312,11 @@ html {
   border-style: solid;
   border-width: 1px;
 }
-:root hero .hero-container .hero-content-top .hero-content-text {
+hero .hero-container .hero-content-top .hero-content-text {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
   padding: var(--padding);
   border: var(--navBackgroundColor);
   border-style: solid;
@@ -301,30 +324,31 @@ html {
   width: 100%;
   height: auto;
 }
-:root hero .hero-container .hero-content-top .hero-content-text h2 {
+hero .hero-container .hero-content-top .hero-content-text h2 {
   color: var(--navBackgroundColor);
   font-family: Anton;
   font-weight: 300;
-  font-size: calc(1.3rem + 1.5vw);
+  font-size: var(--h2HeroHeader);
   text-align: center;
   animation: fadeIn 2s ease 0s 1 normal forwards;
   text-transform: capitalize;
+  text-shadow: 4px 4px black;
 }
-:root hero .hero-container .hero-content-top .hero-content-text p {
-  margin-top: 0.5rem;
+hero .hero-container .hero-content-top .hero-content-text p {
   text-align: center;
   color: var(--navBackgroundColor);
-  font-size: 0.7rem;
+  font-size: var(--paragraphHeroHeader);
   animation: scaleIn 3s ease 0s 1 normal forwards;
+  text-shadow: 2px 2px black;
 }
-:root hero .hero-container .hero-content-top .hero-content-shape {
+hero .hero-container .hero-content-top .hero-content-shape {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 1px;
   width: 30%;
   position: relative;
 }
-:root hero .hero-content-bottom {
+hero .hero-content-bottom {
   margin-top: -1px;
   display: flex;
   flex-direction: column;
@@ -336,26 +360,240 @@ html {
   min-height: 60vh;
   position: relative;
 }
-:root hero .hero-content-bottom .hero-content-bottom-text {
+hero .hero-content-bottom .hero-content-bottom-text {
   padding: var(--padding);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 90%;
+  max-width: 40vh;
   color: var(--navBackgroundColor);
   font-size: 1rem;
 }
-:root hero .hero-content-bottom .hero-content-bottom-image {
+hero .hero-content-bottom .hero-content-bottom-text h1 {
+  font-size: 60px;
+  text-align: center;
+}
+hero .hero-content-bottom .hero-content-bottom-text .content-slider {
+  width: 30vh;
+  height: 360px;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider {
+  height: 320px;
+  width: 40vh;
+  margin: 40px auto 0;
+  overflow: visible;
+  position: relative;
+  top: -4rem;
+}
+hero .hero-content-bottom .hero-content-bottom-text .mask {
+  overflow: hidden;
+  height: 120px;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider li {
+  width: 30vh;
+  height: 120px;
+  position: absolute;
+  top: -325px;
+  list-style: none;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider .quote {
+  font-size: 1rem;
+  font-style: italic;
+  z-index: 4;
+  text-shadow: 2px 2px black;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider .source {
+  font-size: 20px;
+  text-align: right;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider li.anim1 {
+  animation: cycle 60s linear infinite;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider li.anim2 {
+  animation: cycle2 60s linear infinite;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider li.anim3 {
+  animation: cycle3 60s linear infinite;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider li.anim4 {
+  animation: cycle4 60s linear infinite;
+}
+hero .hero-content-bottom .hero-content-bottom-text .slider:hover li {
+  animation-play-state: paused;
+}
+@keyframes cycle {
+  0% {
+    top: 0px;
+  }
+  4% {
+    top: 0px;
+  }
+  16% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  20% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  21% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  50% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  92% {
+    top: -325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  96% {
+    top: -325px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes cycle2 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  16% {
+    top: -325px;
+    opacity: 0;
+  }
+  20% {
+    top: 0px;
+    opacity: 1;
+  }
+  24% {
+    top: 0px;
+    opacity: 1;
+  }
+  36% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  40% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  41% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes cycle3 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  36% {
+    top: -325px;
+    opacity: 0;
+  }
+  40% {
+    top: 0px;
+    opacity: 1;
+  }
+  44% {
+    top: 0px;
+    opacity: 1;
+  }
+  56% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  60% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  61% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes cycle4 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  56% {
+    top: -325px;
+    opacity: 0;
+  }
+  60% {
+    top: 0px;
+    opacity: 1;
+  }
+  64% {
+    top: 0px;
+    opacity: 1;
+  }
+  76% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  80% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  81% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+hero .hero-content-bottom .hero-content-bottom-image {
   display: flex;
   justify-content: center;
 }
-:root hero .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+hero .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+  position: absolute;
+  top: -6.5rem;
   justify-content: center;
-  height: 22.5rem;
-  margin-top: -1.2rem;
+  scale: 50%;
+  margin-top: 1.2rem;
   animation: animRobo 2s ease 0s 1 normal forwards;
 }
-:root hero .hero-content-endless-scroll {
+hero .hero-content-endless-scroll {
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
@@ -375,20 +613,20 @@ html {
     transform: translateX(-12000px);
   }
 }
-:root hero .hero-content-endless-scroll .slider {
+hero .hero-content-endless-scroll .slider {
   display: flex;
   align-items: center;
   justify-content: center;
   /*   background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125); */
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125); */
   height: 150px;
   filter: brightness(0) invert(1);
   overflow: hidden;
   position: relative;
   width: 960px;
 }
-:root hero .hero-content-endless-scroll .slider::before,
-:root hero .hero-content-endless-scroll .slider::after {
+hero .hero-content-endless-scroll .slider::before,
+hero .hero-content-endless-scroll .slider::after {
   /*   background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); */
   content: "";
   height: 100px;
@@ -396,34 +634,34 @@ html {
   width: 200px;
   z-index: 2;
 }
-:root hero .hero-content-endless-scroll .slider::after {
+hero .hero-content-endless-scroll .slider::after {
   right: 100px;
   top: 0;
   transform: rotateZ(180deg);
 }
-:root hero .hero-content-endless-scroll .slider::before {
+hero .hero-content-endless-scroll .slider::before {
   left: 0;
   top: 0;
 }
-:root hero .hero-content-endless-scroll .slider .slide-track {
+hero .hero-content-endless-scroll .slider .slide-track {
   animation: scroll 100s linear infinite;
   display: flex;
   width: 3500px;
   gap: 3rem;
 }
-:root hero .hero-content-endless-scroll .slider .slide-track img {
+hero .hero-content-endless-scroll .slider .slide-track img {
   aspect-ratio: 4/3;
 }
-:root hero .hero-content-endless-scroll .slider .slide {
+hero .hero-content-endless-scroll .slider .slide {
   height: 100px;
   width: 250px;
   padding-left: 20px;
 }
-:root hero .hero-content-endless-scroll .container {
+hero .hero-content-endless-scroll .container {
   width: 100%;
   overflow-x: hidden;
 }
-:root hero .hero-content-endless-scroll .horizontal-scrolling-items {
+hero .hero-content-endless-scroll .horizontal-scrolling-items {
   display: flex;
   font-size: 40px;
   width: 2600px;
@@ -432,22 +670,23 @@ html {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-:root hero .hero-content-endless-scroll .horizontal-scrolling-items__item {
+hero .hero-content-endless-scroll .horizontal-scrolling-items__item {
   white-space: nowrap;
 }
-:root hero .svg-line-container {
+hero .svg-line-container {
   height: 5rem;
   border: var(--navBackgroundColor);
   margin-bottom: -2rem;
 }
-:root main .main-container {
+
+main .main-container {
   padding: var(--padding2);
   margin-top: -4rem;
   position: relative;
   min-height: 100vh;
   margin-bottom: 2rem;
 }
-:root main .main-container .background-circle-shape-2 {
+main .main-container .background-circle-shape-2 {
   background-color: var(--lightBlue);
   width: 25rem;
   height: 25rem;
@@ -459,15 +698,16 @@ html {
   margin-left: -13rem;
   animation: bounce2 3s ease-in 0s 1 normal forwards;
 }
-:root main .main-container .main-feature-1-container {
+main .main-container .main-feature-1-container {
   display: flex;
   flex-direction: row;
-  height: 10rem;
+  height: 14rem;
+  flex-wrap: wrap;
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 1px;
 }
-:root main .main-container .main-feature-1-container .main-feature-1-left {
+main .main-container .main-feature-1-container .main-feature-1-left {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -475,15 +715,17 @@ html {
   border-style: solid;
   border-width: 1px;
   width: 40%;
+  max-height: 100%;
   border-color: var(--navBackgroundColor);
 }
-:root main .main-container .main-feature-1-container .main-feature-1-left h3 {
-  font-size: var(--h3Count);
+main .main-container .main-feature-1-container .main-feature-1-left h3 {
+  font-size: var(--h3Feature1);
   font-family: Anton;
   font-weight: 500;
   color: var(--moistRed);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-1-container .main-feature-1-right {
+main .main-container .main-feature-1-container .main-feature-1-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -494,35 +736,37 @@ html {
   width: 60%;
   border-color: var(--navBackgroundColor);
 }
-:root main .main-container .main-feature-1-container .main-feature-1-right h3 {
+main .main-container .main-feature-1-container .main-feature-1-right h3 {
   font-size: 4rem;
   font-family: Anton;
   font-weight: 500;
   color: var(--moistRed);
 }
-:root main .main-container .main-feature-1-container .main-feature-1-right h2 {
+main .main-container .main-feature-1-container .main-feature-1-right h2 {
   color: var(--navBackgroundColor);
   font-family: Anton;
   font-weight: 300;
-  font-size: var(--h2size);
+  font-size: var(--h2Feature1);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-1-container .main-feature-1-right p {
+main .main-container .main-feature-1-container .main-feature-1-right p {
   color: var(--navBackgroundColor);
   font-weight: 200;
-  font-size: var(--paragraphFeature);
+  font-size: var(--paragraphFeature1);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-svg-break {
+main .main-container .main-feature-svg-break {
   height: var(--lineBreakHeightSVG);
 }
-:root main .main-container .main-feature-2-container {
+main .main-container .main-feature-2-container {
   display: flex;
   flex-direction: row;
-  height: 10rem;
+  height: 14rem;
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 1px;
 }
-:root main .main-container .main-feature-2-container .main-feature-2-left {
+main .main-container .main-feature-2-container .main-feature-2-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -533,54 +777,57 @@ html {
   width: 60%;
   border-color: var(--navBackgroundColor);
 }
-:root main .main-container .main-feature-2-container .main-feature-2-left h3 {
+main .main-container .main-feature-2-container .main-feature-2-left h3 {
   font-size: 4rem;
   font-family: Anton;
   font-weight: 500;
   color: var(--moistRed);
 }
-:root main .main-container .main-feature-2-container .main-feature-2-left h2 {
+main .main-container .main-feature-2-container .main-feature-2-left h2 {
   color: var(--navBackgroundColor);
   font-family: Anton;
   font-weight: 300;
-  font-size: var(--h2size);
+  font-size: var(--h2Feature2);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-2-container .main-feature-2-left p {
+main .main-container .main-feature-2-container .main-feature-2-left p {
   color: var(--navBackgroundColor);
   font-weight: 200;
-  font-size: var(--paragraphFeature);
+  font-size: var(--paragraphFeature2);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-2-container .main-feature-2-right {
+main .main-container .main-feature-2-container .main-feature-2-right {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--padding);
   border-style: solid;
   border-width: 1px;
-  width: 40%;
+  width: 45%;
   border-color: var(--navBackgroundColor);
 }
-:root main .main-container .main-feature-2-container .main-feature-2-right h3 {
-  font-size: 3rem;
+main .main-container .main-feature-2-container .main-feature-2-right h3 {
+  font-size: var(--h3Feature2);
   font-family: Anton;
   font-weight: 500;
   color: var(--moistRed);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-svg-break-2 {
+main .main-container .main-feature-svg-break-2 {
   height: var(--lineBreakHeightSVG);
   margin-top: -2px;
   display: flex;
 }
-:root main .main-container .main-feature-svg-break-2 .main-feature-svg-break-2-shape {
+main .main-container .main-feature-svg-break-2 .main-feature-svg-break-2-shape {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
   width: 30%;
 }
-:root main .main-container .main-feature-svg-break-2 .main-feature-svg-break-2-line {
+main .main-container .main-feature-svg-break-2 .main-feature-svg-break-2-line {
   width: 70%;
 }
-:root main .main-container .main-feature-3-container {
+main .main-container .main-feature-3-container {
   padding-top: var(--padding);
   display: flex;
   flex-direction: column;
@@ -588,24 +835,27 @@ html {
   border: var(--navBackgroundColor);
   margin-top: 2.2rem;
 }
-:root main .main-container .main-feature-3-container h2 {
+main .main-container .main-feature-3-container h2 {
   color: var(--navBackgroundColor);
   font-family: Anton;
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-3-container p {
+main .main-container .main-feature-3-container p {
   color: var(--navBackgroundColor);
   font-weight: 200;
   padding-right: 2rem;
+  font-size: var(--paragraphFeature2);
+  text-shadow: 2px 2px black;
 }
-:root main .main-container .main-feature-3-container .scroll-x {
+main .main-container .scroll-x {
   max-width: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-color: var(--color-fg) var(--color-bg);
 }
-:root main .main-container .wrapper {
+main .main-container .wrapper {
   --size: clamp(12rem, 1rem + 50vw, 20rem);
   --gutter: 2rem;
   --gap: 0.5rem;
@@ -614,16 +864,16 @@ html {
   padding-block: var(--gutter);
   grid-template-columns: [full-start] 1fr [content-start] min(var(--size), 100% - var(--gutter) * 2) [content-end] 1fr [full-end];
 }
-:root main .main-container .items {
+main .main-container .items {
   grid-area: content;
   display: flex;
   gap: var(--gap);
 }
-:root main .main-container .items::after {
+main .main-container .items::after {
   content: "";
   padding-inline-end: max(var(--gutter), (100vw - var(--size)) / 2 - var(--gutter));
 }
-:root main .main-container .items > * {
+main .main-container .items > * {
   display: grid;
   place-content: center;
   flex-shrink: 0;
@@ -637,16 +887,16 @@ html {
   height: 8rem;
   box-shadow: var(--boxShadowSlideButtons);
 }
-:root main .main-container .items > *:active {
+main .main-container .items > *:active {
   background-color: var(--activeButton);
 }
-:root main .main-container .items > * p {
+main .main-container .items > * p {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.2rem;
 }
 @supports (animation-timeline: view()) {
-  :root main .main-container .items > * {
+  main .main-container .items > * {
     --scale: 0.9;
     --offset: var(--gap);
     animation: scale linear both, fade linear both;
@@ -676,16 +926,17 @@ html {
     }
   }
 }
-:root article {
+
+article {
   overflow-x: hidden;
   z-index: 4;
   position: relative;
 }
-:root article a {
+article a {
   text-decoration: none;
   color: var(--navBackgroundColor);
 }
-:root article .article-1-container {
+article .article-1-container {
   background-color: var(--activeButton);
   min-height: 100vh;
   margin-top: 2rem;
@@ -696,7 +947,7 @@ html {
   margin-top: 7rem;
   z-index: 3;
 }
-:root article .article-1-container .article-1-container-wrapper {
+article .article-1-container .article-1-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
@@ -708,7 +959,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-1 {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 {
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -716,38 +967,41 @@ html {
   z-index: 1;
   padding: var(--padding);
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1 {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
-  font-size: 10rem;
+  font-size: var(--articleBackgroundText);
   color: var(--lightBlue);
   font-weight: 700;
   font-family: anton;
-  margin-top: -2rem;
-  z-index: 0;
+  margin-top: -3rem;
+  z-index: -2;
+  text-shadow: 2px 2px black;
+  opacity: 90%;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h5 {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h5 {
   top: 2rem;
   position: absolute;
   font-family: Anton;
   color: var(--moistRed);
   font-size: var(--articleH5);
   font-weight: 500;
+  text-shadow: 2px 2px black;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img {
-  width: 30rem;
-  z-index: 4;
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3 {
   position: absolute;
-  top: 7rem;
-  animation-name: rotateAnimation;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-direction: alternate;
-  animation: trigger steps(1) both;
-  animation-timeline: view();
-  animation-range: entry 80% contain 40%;
+  top: 10rem;
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-2 {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img {
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  margin-top: 10rem;
+}
+article .article-1-container .article-1-container-wrapper .article-1-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
@@ -756,7 +1010,7 @@ html {
   justify-content: space-around;
   margin-top: 2px;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
@@ -765,11 +1019,12 @@ html {
   width: 70%;
   height: 100%;
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text p {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text p {
   color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
   font-size: var(--articleParagraph);
 }
-:root article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-shape {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -777,14 +1032,14 @@ html {
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-:root article .article-1-container .article-buttons {
+article .article-1-container .article-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-:root article .article-1-container .article-buttons .article-1-content-button-1,
-:root article .article-1-container .article-buttons .article-1-content-button-2 {
+article .article-1-container .article-buttons .article-1-content-button-1,
+article .article-1-container .article-buttons .article-1-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
   display: flex;
@@ -799,10 +1054,14 @@ html {
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-:root article .article-1-container .article-buttons .article-1-content-button-2 {
+article .article-1-container .article-buttons .article-1-content-button-1:hover,
+article .article-1-container .article-buttons .article-1-content-button-2:hover {
+  background-color: var(--backgroundColor);
+}
+article .article-1-container .article-buttons .article-1-content-button-2 {
   margin-right: 0.9rem;
 }
-:root article .article-2-container {
+article .article-2-container {
   background-color: var(--backgroundColor);
   min-height: 100vh;
   margin-top: 2rem;
@@ -811,7 +1070,7 @@ html {
   flex-direction: column;
   position: relative;
 }
-:root article .article-2-container .article-2-container-wrapper {
+article .article-2-container .article-2-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
@@ -823,7 +1082,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-1 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 {
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -831,32 +1090,40 @@ html {
   z-index: 1;
   padding: var(--padding);
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
-  font-size: 10rem;
+  font-size: var(--articleBackgroundText);
   color: var(--darkBlue);
   font-weight: 700;
   font-family: anton;
   margin-top: -2rem;
   z-index: 0;
+  text-shadow: 2px 2px black;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
   top: 2rem;
   position: absolute;
   font-family: Anton;
   color: var(--moistRed);
   font-size: var(--articleH5);
   font-weight: 500;
+  text-shadow: 2px 2px black;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
+  position: absolute;
+  top: 10rem;
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
+}
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
   width: 30rem;
   z-index: 4;
   position: absolute;
   top: 10rem;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-2 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
@@ -865,7 +1132,7 @@ html {
   justify-content: space-around;
   margin-top: 2px;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
@@ -874,11 +1141,12 @@ html {
   width: 70%;
   height: 100%;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
   color: var(--navBackgroundColor);
   font-size: var(--articleParagraph);
+  text-shadow: 2px 2px black;
 }
-:root article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -886,14 +1154,14 @@ html {
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-:root article .article-2-container .article-2-buttons {
+article .article-2-container .article-2-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-:root article .article-2-container .article-2-buttons .article-2-content-button-1,
-:root article .article-2-container .article-2-buttons .article-2-content-button-2 {
+article .article-2-container .article-2-buttons .article-2-content-button-1,
+article .article-2-container .article-2-buttons .article-2-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
   display: flex;
@@ -908,10 +1176,10 @@ html {
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-:root article .article-2-container .article-2-buttons .article-2-content-button-2 {
+article .article-2-container .article-2-buttons .article-2-content-button-2 {
   margin-right: 0.9rem;
 }
-:root article .article-3-container {
+article .article-3-container {
   background-color: var(--activeButton);
   min-height: 100vh;
   margin-top: 2rem;
@@ -920,7 +1188,7 @@ html {
   flex-direction: column;
   position: relative;
 }
-:root article .article-3-container .article-3-container-wrapper {
+article .article-3-container .article-3-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
@@ -932,7 +1200,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-1 {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 {
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -940,32 +1208,41 @@ html {
   z-index: 1;
   padding: var(--padding);
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
-  font-size: 10rem;
+  font-size: var(--articleBackgroundText);
   color: var(--lightBlue);
   font-weight: 700;
   font-family: anton;
   margin-top: -2rem;
   z-index: 0;
+  text-shadow: 2px 2px black;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
   top: 2rem;
   position: absolute;
   font-family: Anton;
   color: var(--moistRed);
   font-size: var(--articleH5);
   font-weight: 500;
+  text-shadow: 2px 2px black;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
+  font-size: var(--h3Article);
+  position: absolute;
+  top: 10rem;
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
+}
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
   width: 30rem;
   z-index: 4;
   position: absolute;
   top: 10rem;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-2 {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
@@ -974,7 +1251,7 @@ html {
   justify-content: space-around;
   margin-top: 2px;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
@@ -983,11 +1260,11 @@ html {
   width: 70%;
   height: 100%;
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text p {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text p {
   color: var(--navBackgroundColor);
   font-size: var(--articleParagraph);
 }
-:root article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-shape {
+article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -995,14 +1272,14 @@ html {
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-:root article .article-3-container .article-3-buttons {
+article .article-3-container .article-3-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-:root article .article-3-container .article-3-buttons .article-3-content-button-1,
-:root article .article-3-container .article-3-buttons .article-3-content-button-2 {
+article .article-3-container .article-3-buttons .article-3-content-button-1,
+article .article-3-container .article-3-buttons .article-3-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
   display: flex;
@@ -1017,32 +1294,77 @@ html {
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-:root article .article-3-container .article-3-buttons .article-3-content-button-2 {
+article .article-3-container .article-3-buttons .article-3-content-button-2 {
   margin-right: 0.9rem;
 }
-:root footer {
+article .article-3-container .article-4-job-offers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  min-height: 30vh;
+  padding: var(--padding);
+  margin-top: 2rem;
+  background-color: var(--backgroundColor);
+  border-style: solid;
+  border-color: var(--navBackgroundColor);
+}
+article .article-3-container .article-4-job-offers h2 {
+  color: var(--navBackgroundColor);
+  font-family: Anton;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px black;
+}
+article .article-3-container .article-4-job-offers p {
+  text-align: center;
+  color: var(--navBackgroundColor);
+  font-size: var(--paragraphJobOffers);
+}
+article .article-3-container .article-4-job-offers button {
+  font-family: Anton;
+  font-size: var(--jobOffersButtonsFontSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--navBackgroundColor);
+  padding: 1rem;
+  width: 40%;
+  background-color: var(--moistRed);
+  box-shadow: var(--boxShadowSlideButtons);
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+article .article-3-container .article-4-job-offers button:hover {
+  background-color: var(--backgroundColor);
+}
+
+footer {
   overflow-x: hidden;
 }
-:root footer .footer-container {
+footer .footer-container {
   background-color: var(--backgroundColor);
-  min-height: 60vh;
+  min-height: 100vh;
   margin-top: 2rem;
   padding: var(--padding2);
   display: flex;
   flex-direction: column;
 }
-:root footer .footer-container .footer-contact-form {
+footer .footer-container .footer-contact-form {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
-  min-height: 30rem;
+  min-height: 40rem;
   min-width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   margin-top: -2rem;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-header {
+footer .footer-container .footer-contact-form .footer-contact-form-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1050,23 +1372,24 @@ html {
   border-bottom: 2px solid var(--navBackgroundColor);
   height: 5rem;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text {
+footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text {
   width: 70%;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text h2 {
+footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text h2 {
   color: var(--navBackgroundColor);
   font-family: Anton;
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 2.3rem;
   padding: var(--padding);
+  text-shadow: 2px 2px black;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape {
+footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape {
   width: 30%;
   height: 100%;
   border-left: 2px solid var(--navBackgroundColor);
   position: relative;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape .contact-form-img {
+footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape .contact-form-img {
   transform: rotate(290deg);
   position: absolute;
   width: 25rem;
@@ -1074,21 +1397,22 @@ html {
   top: -1rem;
   z-index: 1;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form {
   font-family: Roboto;
   padding: var(--padding);
   gap: 1rem;
   display: flex;
   flex-direction: column;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form .footer-button-container {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form .footer-button-container {
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--backgroundColor);
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=text],
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form select {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=text],
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form select {
   width: 60%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -1098,9 +1422,9 @@ html {
   box-sizing: border-box;
   font-family: Roboto;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit] {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit] {
   font-family: Anton;
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1114,10 +1438,11 @@ html {
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit]:hover {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit]:hover {
   background-color: #45a049;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form textarea {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form textarea {
+  margin-top: 2rem;
   width: 70%;
   height: 150px;
   padding: 12px 20px;
@@ -1129,22 +1454,650 @@ html {
   resize: none;
   font-family: Roboto;
 }
-:root footer .footer-container .footer-contact-form .footer-contact-form-contact-form div {
+footer .footer-container .footer-contact-form .footer-contact-form-contact-form div {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
-:root footer .footer-bottom-company-details {
+footer .footer-bottom-company-details {
   padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-:root footer .footer-bottom-company-details .footer-bottom-company-info {
+footer .footer-bottom-company-details .footer-bottom-company-info {
   color: var(--lightBlue);
 }
-:root footer .footer-bottom-company-details .footer-bottom-company-info p {
+footer .footer-bottom-company-details .footer-bottom-company-info p {
   margin-left: -1rem;
   font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 460px) {
+  :root {
+    --h3Feature1: 5rem;
+    --h3Feature2: 5rem;
+    --h2Feature1: 1.1rem;
+    --h2Feature2: 1.1rem;
+    --paragraphFeature1: 1.1rem;
+    --paragraphFeature2: 1rem;
+    --articleH5: 3rem;
+    --articleParagraph: 1rem;
+    --articleButtonsFontSize: 1rem;
+    --h2HeroHeader: 2.3rem;
+    --paragraphHeroHeader: 1.2rem;
+  }
+}
+@media only screen and (min-width: 500px) {
+  hero .hero-container .background-circle-shape {
+    background-color: var(--lightBlue);
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+    border-radius: 100%;
+    overflow-x: hidden;
+    z-index: -1;
+    top: 6rem;
+    left: 20rem;
+    animation: bounce 3s ease-in 0s 1 normal forwards;
+  }
+}
+@media only screen and (min-width: 650px) {
+  :root {
+    --h3Feature1: 5rem;
+    --h3Feature2: 5rem;
+    --h2Feature1: 1.7rem;
+    --h2Feature2: 2.1rem;
+    --paragraphFeature1: 1.1rem;
+    --paragraphFeature2: 1.3rem;
+    --articleH5: 5rem;
+    --articleParagraph: 1.2rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 2.3rem;
+    --paragraphHeroHeader: 1.2rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    scale: 55%;
+    top: -8rem;
+  }
+}
+@media only screen and (min-width: 650px) and (min-width: 800px) {
+  hero .hero-container .background-circle-shape {
+    opacity: 30%;
+    background-color: var(--lightBlue);
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+    border-radius: 100%;
+    overflow-x: hidden;
+    z-index: -1;
+    top: 6rem;
+    left: 35rem;
+    animation: bounce 3s ease-in 0s 1 normal forwards;
+  }
+}
+@media only screen and (min-width: 650px) and (min-width: 1024px) {
+  :root {
+    --h3Feature1: 7rem;
+    --h3Feature2: 7rem;
+    --h2Feature1: 2.7rem;
+    --h2Feature2: 2.7rem;
+    --paragraphFeature1: 1.1rem;
+    --paragraphFeature2: 1.3rem;
+    --articleH5: 10rem;
+    --articleParagraph: 1.2rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 2.3rem;
+    --paragraphHeroHeader: 1.2rem;
+    --articleBackgroundText: 20rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu {
+    display: flex;
+    margin-left: 40vh;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu a {
+    font-family: Anton;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 2rem;
+    color: var(--moistRed);
+    font-size: 1rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .burger {
+    display: none;
+  }
+  hero .hero-container .background-circle-shape {
+    background-color: var(--lightBlue);
+    width: 45rem;
+    height: 45rem;
+    position: absolute;
+    border-radius: 100%;
+    overflow-x: hidden;
+    z-index: -1;
+    top: 2rem;
+    left: 50rem;
+    animation: bounce 3s ease-in 0s 1 normal forwards;
+  }
+  hero .hero-container .background-triangle-shape {
+    width: 400px;
+    height: 450px;
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: var(--lightBlue);
+    position: absolute;
+    top: 16.1rem;
+    left: 2.3rem;
+  }
+  hero .hero-container .hero-content-top .hero-content-text {
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 13rem;
+    flex-direction: column;
+  }
+  hero .hero-container .hero-content-top .hero-content-text h2 {
+    width: 50%;
+    text-align: left;
+  }
+  hero .hero-container .hero-content-bottom {
+    margin-top: 2rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider {
+    height: 320px;
+    width: 70rem;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+    top: -2rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider li {
+    width: 60vh;
+    height: 320px;
+    position: absolute;
+    top: -325px;
+    list-style: none;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .mask {
+    overflow: hidden;
+    height: 320px;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider .quote {
+    text-wrap: wrap;
+    height: 20rem;
+    font-size: 2rem;
+    font-style: italic;
+    z-index: 4;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    margin-right: 20rem;
+    margin-top: -9rem;
+    scale: 85%;
+  }
+  main .main-container {
+    min-height: 50vh;
+  }
+  main .main-container .main-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  main .main-container .main-wrapper .main-feature-svg-break-2-shape {
+    display: none;
+  }
+  main .main-container .main-wrapper .main-feature-svg-break-2-line {
+    display: none;
+  }
+}
+@media only screen and (min-width: 650px) and (min-width: 1300px) {
+  :root {
+    --h3Feature1: 7rem;
+    --h3Feature2: 7rem;
+    --h2Feature1: 1.7rem;
+    --h2Feature2: 1.7rem;
+    --paragraphFeature1: 1.1rem;
+    --paragraphFeature2: 1.3rem;
+    --articleH5: 5.5rem;
+    --articleParagraph: 1.2rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 2.6rem;
+    --paragraphHeroHeader: 1.2rem;
+    --lineBreakHeightSVG: 10rem;
+    --articleBackgroundText: 20rem;
+    --articleFrontText2: 5rem;
+  }
+  nav .desktop-menu {
+    margin-left: 5rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
+    width: 40rem;
+    position: absolute;
+    margin-top: -2rem;
+    margin-left: -4rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img {
+    margin-top: -10rem;
+    margin-left: 45rem;
+    width: 45rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
+    width: 43rem;
+    margin-top: -8rem;
+    margin-left: -10rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h1,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h1,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h1,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h1,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h1,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h1,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h1,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h1,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h1,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h1,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h1,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h1,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h1,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h1,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h1,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h1,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h1,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h1,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h1,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h1,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h1,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h1,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h1,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h1,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
+    margin-top: -6rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h3,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h3,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h3,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h3,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h3,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h3,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h3,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h3,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h3,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
+    position: absolute;
+    font-size: var(--articleFrontText2);
+    color: var(--navBackgroundColor);
+    margin-top: 20rem;
+    margin-left: 32rem;
+    z-index: 45;
+    margin-top: 0;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h5,
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h5,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h5,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h5,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h5,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h5,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h5,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h5,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h5,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h5,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
+    margin-left: 42rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h5,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h5 {
+    margin-left: 1rem;
+    z-index: 45;
+  }
+  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h3,
+  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h3 {
+    margin-left: 2rem;
+    margin-top: 0;
+  }
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h5,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
+    margin-left: 34rem;
+    z-index: 45;
+  }
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h3,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
+    margin-left: 34rem;
+    margin-top: 0;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-2,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-2,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-2,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-2,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-2,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-2,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-2,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-2,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-2,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-2,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-2,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-2,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-2,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-2,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-2,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-2,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-2,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 {
+    flex-direction: row-reverse;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-1-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-2-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--navBackgroundColor);
+  }
+  article .article-1-container .article-buttons,
+  article .article-1-container .article-2-buttons,
+  article .article-1-container .article-3-buttons,
+  article .article-2-container .article-buttons,
+  article .article-2-container .article-2-buttons,
+  article .article-2-container .article-3-buttons,
+  article .article-3-container .article-buttons,
+  article .article-3-container .article-2-buttons,
+  article .article-3-container .article-3-buttons {
+    justify-content: flex-end;
+    gap: 5rem;
+  }
+  article .article-1-container .article-buttons .article-1-content-button-1,
+  article .article-1-container .article-buttons .article-1-content-button-2,
+  article .article-1-container .article-buttons .article-3-buttons,
+  article .article-1-container .article-2-buttons .article-1-content-button-1,
+  article .article-1-container .article-2-buttons .article-1-content-button-2,
+  article .article-1-container .article-2-buttons .article-3-buttons,
+  article .article-1-container .article-3-buttons .article-1-content-button-1,
+  article .article-1-container .article-3-buttons .article-1-content-button-2,
+  article .article-1-container .article-3-buttons .article-3-buttons,
+  article .article-2-container .article-buttons .article-1-content-button-1,
+  article .article-2-container .article-buttons .article-1-content-button-2,
+  article .article-2-container .article-buttons .article-3-buttons,
+  article .article-2-container .article-2-buttons .article-1-content-button-1,
+  article .article-2-container .article-2-buttons .article-1-content-button-2,
+  article .article-2-container .article-2-buttons .article-3-buttons,
+  article .article-2-container .article-3-buttons .article-1-content-button-1,
+  article .article-2-container .article-3-buttons .article-1-content-button-2,
+  article .article-2-container .article-3-buttons .article-3-buttons,
+  article .article-3-container .article-buttons .article-1-content-button-1,
+  article .article-3-container .article-buttons .article-1-content-button-2,
+  article .article-3-container .article-buttons .article-3-buttons,
+  article .article-3-container .article-2-buttons .article-1-content-button-1,
+  article .article-3-container .article-2-buttons .article-1-content-button-2,
+  article .article-3-container .article-2-buttons .article-3-buttons,
+  article .article-3-container .article-3-buttons .article-1-content-button-1,
+  article .article-3-container .article-3-buttons .article-1-content-button-2,
+  article .article-3-container .article-3-buttons .article-3-buttons {
+    width: 20rem;
+  }
+  article .article-1-container .article-2-buttons,
+  article .article-2-container .article-2-buttons,
+  article .article-3-container .article-2-buttons {
+    justify-content: flex-start;
+    gap: 5rem;
+  }
+  article .article-1-container .article-2-buttons .article-2-content-button-1,
+  article .article-1-container .article-2-buttons .article-2-content-button-2,
+  article .article-2-container .article-2-buttons .article-2-content-button-1,
+  article .article-2-container .article-2-buttons .article-2-content-button-2,
+  article .article-3-container .article-2-buttons .article-2-content-button-1,
+  article .article-3-container .article-2-buttons .article-2-content-button-2 {
+    width: 20rem;
+  }
+  article .article-1-container .article-3-buttons,
+  article .article-2-container .article-3-buttons,
+  article .article-3-container .article-3-buttons {
+    justify-content: flex-end;
+    gap: 5rem;
+  }
+  article .article-1-container .article-3-buttons .article-3-content-button-1,
+  article .article-1-container .article-3-buttons .article-3-content-button-2,
+  article .article-2-container .article-3-buttons .article-3-content-button-1,
+  article .article-2-container .article-3-buttons .article-3-content-button-2,
+  article .article-3-container .article-3-buttons .article-3-content-button-1,
+  article .article-3-container .article-3-buttons .article-3-content-button-2 {
+    width: 20rem;
+  }
+  article .article-1-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text,
+  article .article-2-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text,
+  article .article-3-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text {
+    width: 10%;
+  }
 }/*# sourceMappingURL=css.css.map */
