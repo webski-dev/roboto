@@ -32,20 +32,20 @@ html {
   --boxShadowSlideButtons: 15px 15px black;
   --lightBlue: #a5c0de;
   --darkBlue: #466bc2;
-  --h2HeroHeader: calc(1.5rem + 1.5vw);
-  --h3Feature1: 5rem;
-  --h3Feature2: 5rem;
+  --h2HeroHeader: 5.5vw;
+  --h3Feature1: 4rem;
+  --h3Feature2: 4rem;
   --h2Feature1: 1.4rem;
   --paragraphFeature1: 0.9rem;
   --h2Feature2: 1.4rem;
-  --paragraphFeature2: 0.9rem;
-  --articleH5: 3rem;
+  --paragraphFeature2: 4vw;
+  --articleH5: 10vw;
   --articleParagraph: 0.8rem;
-  --articleButtonsFontSize: 1.5rem;
-  --paragraphHeroHeader: 1.3rem;
+  --articleButtonsFontSize: 1.3rem;
+  --paragraphHeroHeader: 1.1rem;
   --paragraphJobOffers: 1.2rem;
-  --h3Article: 1.2rem;
-  --articleBackgroundText: 10rem;
+  --h3Article: 6vw;
+  --articleBackgroundText: 14vw;
   --jobOffersButtonsFontSize: 1.5rem;
 }
 
@@ -68,6 +68,28 @@ body {
     --color-text: papayawhip;
     --color-bg: navy;
     --color-bg-accent: #2626a0;
+  }
+}
+@keyframes catHand {
+  0% {
+    opacity: 1;
+    transform: translateY(-250px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-250px);
+  }
+}
+@keyframes textAnim {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 @keyframes rotateAnimation {
@@ -152,6 +174,13 @@ nav .mobile-navigation-container .mobile-navigation-content {
   align-items: center;
   width: 100%;
 }
+nav .mobile-navigation-container .mobile-navigation-content .left-side-nav {
+  margin-left: 2rem;
+  width: 50vh;
+}
+nav .mobile-navigation-container .mobile-navigation-content .left-side-nav .logo-middle-img {
+  margin-left: 1rem;
+}
 nav .mobile-navigation-container .mobile-navigation-content .logo-img {
   width: 7rem;
   z-index: 14;
@@ -167,6 +196,7 @@ nav .mobile-navigation-container .mobile-navigation-content .desktop-menu {
   display: none;
 }
 nav .mobile-navigation-container .mobile-navigation-content .burger {
+  margin-right: 2rem;
   position: relative;
   width: 40px;
   height: 30px;
@@ -223,11 +253,12 @@ nav .mobile-navigation-container .mobile-navigation-content .burger input:checke
   font-size: 1.7rem;
   box-shadow: 2px 0 5px -2px #000000;
   z-index: 1;
+  display: flex;
   display: none;
   position: fixed;
   z-index: 13;
   background-color: white;
-  min-height: 100%;
+  min-height: 100vh;
   width: 100vh;
   overflow: clip;
   overflow-y: hidden;
@@ -250,7 +281,6 @@ nav .mobile-navigation-container .mobile-navigation-content .burger input:checke
 }
 .mobile-menu ul {
   list-style: none;
-  margin-left: -23rem;
 }
 .mobile-menu ul li {
   margin-top: 1rem;
@@ -259,6 +289,7 @@ nav .mobile-navigation-container .mobile-navigation-content .burger input:checke
 .active {
   display: flex;
   overflow: hidden;
+  width: 100%;
   animation: mobileAnim 2s ease 0s 1 normal forwards;
 }
 
@@ -277,7 +308,7 @@ hero .hero-container h5 {
   margin-top: 0.5rem;
   margin-bottom: -1.5rem;
   text-align: center;
-  z-index: 2;
+  z-index: 5;
   text-shadow: 2px 2px black;
 }
 hero .hero-container .background-circle-shape {
@@ -300,14 +331,15 @@ hero .hero-container .background-triangle-shape {
           clip-path: polygon(0 0, 100% 100%, 0 100%);
   background: var(--lightBlue);
   position: absolute;
-  top: 29.1rem;
-  left: 3rem;
+  top: 33.1rem;
+  left: calc(1.2rem + 4vw);
+  z-index: -1;
 }
 hero .hero-container .hero-content-top {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 12rem;
+  min-height: 12rem;
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 1px;
@@ -623,7 +655,7 @@ hero .hero-content-endless-scroll .slider {
   filter: brightness(0) invert(1);
   overflow: hidden;
   position: relative;
-  width: 960px;
+  width: 100%;
 }
 hero .hero-content-endless-scroll .slider::before,
 hero .hero-content-endless-scroll .slider::after {
@@ -631,7 +663,7 @@ hero .hero-content-endless-scroll .slider::after {
   content: "";
   height: 100px;
   position: absolute;
-  width: 200px;
+  width: 100%;
   z-index: 2;
 }
 hero .hero-content-endless-scroll .slider::after {
@@ -654,7 +686,7 @@ hero .hero-content-endless-scroll .slider .slide-track img {
 }
 hero .hero-content-endless-scroll .slider .slide {
   height: 100px;
-  width: 250px;
+  width: 550px;
   padding-left: 20px;
 }
 hero .hero-content-endless-scroll .container {
@@ -714,7 +746,7 @@ main .main-container .main-feature-1-container .main-feature-1-left {
   padding: var(--padding);
   border-style: solid;
   border-width: 1px;
-  width: 40%;
+  width: 45%;
   max-height: 100%;
   border-color: var(--navBackgroundColor);
 }
@@ -733,7 +765,7 @@ main .main-container .main-feature-1-container .main-feature-1-right {
   padding: var(--padding);
   border-style: solid;
   border-width: 1px;
-  width: 60%;
+  width: 55%;
   border-color: var(--navBackgroundColor);
 }
 main .main-container .main-feature-1-container .main-feature-1-right h3 {
@@ -755,6 +787,9 @@ main .main-container .main-feature-1-container .main-feature-1-right p {
   font-size: var(--paragraphFeature1);
   text-shadow: 2px 2px black;
 }
+main .main-container .main-feature-1-container .main-feature-1-right #heading2 {
+  animation: textAnim 2s ease 0s 1 normal forwards;
+}
 main .main-container .main-feature-svg-break {
   height: var(--lineBreakHeightSVG);
 }
@@ -774,7 +809,7 @@ main .main-container .main-feature-2-container .main-feature-2-left {
   padding: var(--padding);
   border-style: solid;
   border-width: 1px;
-  width: 60%;
+  width: 55%;
   border-color: var(--navBackgroundColor);
 }
 main .main-container .main-feature-2-container .main-feature-2-left h3 {
@@ -831,7 +866,7 @@ main .main-container .main-feature-3-container {
   padding-top: var(--padding);
   display: flex;
   flex-direction: column;
-  height: 10rem;
+  height: 13rem;
   border: var(--navBackgroundColor);
   margin-top: 2.2rem;
 }
@@ -931,6 +966,7 @@ article {
   overflow-x: hidden;
   z-index: 4;
   position: relative;
+  margin-top: 5rem;
 }
 article a {
   text-decoration: none;
@@ -938,7 +974,7 @@ article a {
 }
 article .article-1-container {
   background-color: var(--activeButton);
-  min-height: 100vh;
+  min-height: 60vh;
   margin-top: 2rem;
   padding: var(--padding2);
   display: flex;
@@ -951,7 +987,7 @@ article .article-1-container .article-1-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
-  min-height: 100vh;
+  min-height: 80vh;
   min-width: 100%;
   position: relative;
   z-index: 1;
@@ -960,6 +996,7 @@ article .article-1-container .article-1-container-wrapper {
   justify-content: space-between;
 }
 article .article-1-container .article-1-container-wrapper .article-1-content-section-1 {
+  position: relative;
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -967,7 +1004,15 @@ article .article-1-container .article-1-container-wrapper .article-1-content-sec
   z-index: 1;
   padding: var(--padding);
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1 {
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .header-writing-text {
+  min-height: 20rem;
+}
+article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .header-image-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article .article-1-container .article-1-container-wrapper h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
@@ -975,33 +1020,37 @@ article .article-1-container .article-1-container-wrapper .article-1-content-sec
   color: var(--lightBlue);
   font-weight: 700;
   font-family: anton;
-  margin-top: -3rem;
   z-index: -2;
-  text-shadow: 2px 2px black;
-  opacity: 90%;
+  text-shadow: 1px 1px black;
+  opacity: 50%;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h5 {
-  top: 2rem;
-  position: absolute;
+article .article-1-container .article-1-container-wrapper h5 {
+  top: -2rem;
   font-family: Anton;
   color: var(--moistRed);
   font-size: var(--articleH5);
   font-weight: 500;
   text-shadow: 2px 2px black;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3 {
-  position: absolute;
-  top: 10rem;
+article .article-1-container .article-1-container-wrapper h3 {
+  margin-top: -1rem;
   color: var(--navBackgroundColor);
   text-shadow: 2px 2px black;
+  font-size: var(--h3Article);
+  z-index: 62;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img {
-  width: 30rem;
+article .article-1-container .article-1-container-wrapper .developers-img {
+  width: 25rem;
   display: flex;
   align-items: center;
-  margin-top: 10rem;
+  top: 10rem;
+  z-index: -4;
+  scale: 100%;
+  margin-top: -3rem;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-2 {
+article .article-1-container .article-1-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
@@ -1010,7 +1059,7 @@ article .article-1-container .article-1-container-wrapper .article-1-content-sec
   justify-content: space-around;
   margin-top: 2px;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text {
+article .article-1-container .article-1-content-section-2 .article-1-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
@@ -1019,12 +1068,12 @@ article .article-1-container .article-1-container-wrapper .article-1-content-sec
   width: 70%;
   height: 100%;
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text p {
+article .article-1-container .article-1-content-section-2 .article-1-content-section-2-text p {
   color: var(--navBackgroundColor);
   text-shadow: 2px 2px black;
   font-size: var(--articleParagraph);
 }
-article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-shape {
+article .article-1-container .article-1-content-section-2 .article-1-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -1032,14 +1081,14 @@ article .article-1-container .article-1-container-wrapper .article-1-content-sec
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-article .article-1-container .article-buttons {
+article .article-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-article .article-1-container .article-buttons .article-1-content-button-1,
-article .article-1-container .article-buttons .article-1-content-button-2 {
+article .article-buttons .article-1-content-button-1,
+article .article-buttons .article-1-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
   display: flex;
@@ -1048,20 +1097,21 @@ article .article-1-container .article-buttons .article-1-content-button-2 {
   border-style: solid;
   border-width: 2px;
   color: var(--navBackgroundColor);
-  padding: 1rem;
-  width: 40%;
+  padding: 0.8rem;
+  width: 45%;
   background-color: var(--moistRed);
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-article .article-1-container .article-buttons .article-1-content-button-1:hover,
-article .article-1-container .article-buttons .article-1-content-button-2:hover {
+article .article-buttons .article-1-content-button-1:hover,
+article .article-buttons .article-1-content-button-2:hover {
   background-color: var(--backgroundColor);
 }
-article .article-1-container .article-buttons .article-1-content-button-2 {
+article .article-buttons .article-1-content-button-2 {
   margin-right: 0.9rem;
 }
-article .article-2-container {
+
+.article-2-container {
   background-color: var(--backgroundColor);
   min-height: 100vh;
   margin-top: 2rem;
@@ -1070,11 +1120,11 @@ article .article-2-container {
   flex-direction: column;
   position: relative;
 }
-article .article-2-container .article-2-container-wrapper {
+.article-2-container .article-2-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
-  min-height: 100vh;
+  min-height: 80vh;
   min-width: 100%;
   position: relative;
   z-index: 1;
@@ -1082,7 +1132,7 @@ article .article-2-container .article-2-container-wrapper {
   flex-direction: column;
   justify-content: space-between;
 }
-article .article-2-container .article-2-container-wrapper .article-2-content-section-1 {
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 {
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -1090,125 +1140,15 @@ article .article-2-container .article-2-container-wrapper .article-2-content-sec
   z-index: 1;
   padding: var(--padding);
 }
-article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
-  letter-spacing: 0.3rem;
-  position: absolute;
-  width: 100%;
-  font-size: var(--articleBackgroundText);
-  color: var(--darkBlue);
-  font-weight: 700;
-  font-family: anton;
-  margin-top: -2rem;
-  z-index: 0;
-  text-shadow: 2px 2px black;
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 .headerwriting-text-2 {
+  min-height: 10rem;
 }
-article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
-  top: 2rem;
-  position: absolute;
-  font-family: Anton;
-  color: var(--moistRed);
-  font-size: var(--articleH5);
-  font-weight: 500;
-  text-shadow: 2px 2px black;
-}
-article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
-  position: absolute;
-  top: 10rem;
-  color: var(--navBackgroundColor);
-  text-shadow: 2px 2px black;
-}
-article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
-  width: 30rem;
-  z-index: 4;
-  position: absolute;
-  top: 10rem;
-}
-article .article-2-container .article-2-container-wrapper .article-2-content-section-2 {
-  border-top: 2px solid var(--navBackgroundColor);
-  display: flex;
-  flex-direction: row;
-  min-width: 100%;
-  height: 12rem;
-  justify-content: space-around;
-  margin-top: 2px;
-}
-article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
-  font-size: 0.9rem;
-  padding: var(--padding);
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-image-content-2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  height: 100%;
 }
-article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
-  color: var(--navBackgroundColor);
-  font-size: var(--articleParagraph);
-  text-shadow: 2px 2px black;
-}
-article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
-  font-family: roboto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  border-left: 2px solid var(--navBackgroundColor);
-}
-article .article-2-container .article-2-buttons {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-article .article-2-container .article-2-buttons .article-2-content-button-1,
-article .article-2-container .article-2-buttons .article-2-content-button-2 {
-  font-family: Anton;
-  font-size: var(--articleButtonsFontSize);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-style: solid;
-  border-width: 2px;
-  color: var(--navBackgroundColor);
-  padding: 1rem;
-  width: 40%;
-  background-color: var(--moistRed);
-  box-shadow: var(--boxShadowSlideButtons);
-  cursor: pointer;
-}
-article .article-2-container .article-2-buttons .article-2-content-button-2 {
-  margin-right: 0.9rem;
-}
-article .article-3-container {
-  background-color: var(--activeButton);
-  min-height: 100vh;
-  margin-top: 2rem;
-  padding: var(--padding2);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-article .article-3-container .article-3-container-wrapper {
-  border: var(--navBackgroundColor);
-  border-style: solid;
-  border-width: 2px;
-  min-height: 100vh;
-  min-width: 100%;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-article .article-3-container .article-3-container-wrapper .article-3-content-section-1 {
-  display: flexbox;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  z-index: 1;
-  padding: var(--padding);
-}
-article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
@@ -1216,42 +1156,45 @@ article .article-3-container .article-3-container-wrapper .article-3-content-sec
   color: var(--lightBlue);
   font-weight: 700;
   font-family: anton;
-  margin-top: -2rem;
-  z-index: 0;
-  text-shadow: 2px 2px black;
+  z-index: -2;
+  text-shadow: 1px 1px black;
+  opacity: 50%;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
-  top: 2rem;
-  position: absolute;
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
+  top: -2rem;
   font-family: Anton;
   color: var(--moistRed);
   font-size: var(--articleH5);
   font-weight: 500;
   text-shadow: 2px 2px black;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
-  font-size: var(--h3Article);
-  position: absolute;
-  top: 10rem;
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
+  margin-top: -1rem;
   color: var(--navBackgroundColor);
   text-shadow: 2px 2px black;
+  font-size: var(--h3Article);
+  z-index: 62;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
+.article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
   width: 30rem;
-  z-index: 4;
-  position: absolute;
-  top: 10rem;
+  display: flex;
+  align-items: center;
+  z-index: -4;
+  scale: 100%;
+  margin-top: -2rem;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-2 {
+.article-2-container .article-2-container-wrapper .article-2-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
   min-width: 100%;
-  height: 12rem;
+  height: 10rem;
   justify-content: space-around;
   margin-top: 2px;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text {
+.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
@@ -1260,11 +1203,12 @@ article .article-3-container .article-3-container-wrapper .article-3-content-sec
   width: 70%;
   height: 100%;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text p {
+.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
   color: var(--navBackgroundColor);
   font-size: var(--articleParagraph);
+  text-shadow: 2px 2px black;
 }
-article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-shape {
+.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -1272,14 +1216,14 @@ article .article-3-container .article-3-container-wrapper .article-3-content-sec
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-article .article-3-container .article-3-buttons {
+.article-2-container .article-2-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-article .article-3-container .article-3-buttons .article-3-content-button-1,
-article .article-3-container .article-3-buttons .article-3-content-button-2 {
+.article-2-container .article-2-buttons .article-2-content-button-1,
+.article-2-container .article-2-buttons .article-2-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
   display: flex;
@@ -1294,51 +1238,145 @@ article .article-3-container .article-3-buttons .article-3-content-button-2 {
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
 }
-article .article-3-container .article-3-buttons .article-3-content-button-2 {
+.article-2-container .article-2-buttons .article-2-content-button-2 {
   margin-right: 0.9rem;
 }
-article .article-3-container .article-4-job-offers {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  min-height: 30vh;
-  padding: var(--padding);
+
+.article-3-container {
+  background-color: var(--activeButton);
+  min-height: 60vh;
   margin-top: 2rem;
-  background-color: var(--backgroundColor);
+  padding: var(--padding2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 7rem;
+  z-index: 3;
+}
+.article-3-container .article-3-container-wrapper {
+  border: var(--navBackgroundColor);
   border-style: solid;
-  border-color: var(--navBackgroundColor);
+  border-width: 2px;
+  min-height: 80vh;
+  min-width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-article .article-3-container .article-4-job-offers h2 {
-  color: var(--navBackgroundColor);
+.article-3-container .article-3-container-wrapper .article-3-content-section-1 {
+  position: relative;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  z-index: 1;
+  padding: var(--padding);
+}
+.article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-writing-text-3 {
+  min-height: 20rem;
+}
+.article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-image-content-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article-3-container .article-3-container-wrapper h1 {
+  letter-spacing: 0.3rem;
+  position: absolute;
+  width: 100%;
+  font-size: var(--articleBackgroundText);
+  color: var(--lightBlue);
+  font-weight: 700;
+  font-family: anton;
+  z-index: -2;
+  text-shadow: 1px 1px black;
+  opacity: 50%;
+}
+.article-3-container .article-3-container-wrapper h5 {
+  top: -2rem;
   font-family: Anton;
-  font-weight: 300;
-  text-align: center;
-  font-size: 2rem;
+  color: var(--moistRed);
+  font-size: var(--articleH5);
+  font-weight: 500;
   text-shadow: 2px 2px black;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
 }
-article .article-3-container .article-4-job-offers p {
-  text-align: center;
+.article-3-container .article-3-container-wrapper h3 {
+  margin-top: -1rem;
   color: var(--navBackgroundColor);
-  font-size: var(--paragraphJobOffers);
+  text-shadow: 2px 2px black;
+  font-size: var(--h3Article);
+  z-index: 62;
 }
-article .article-3-container .article-4-job-offers button {
+.article-3-container .article-3-container-wrapper .media-img {
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10rem;
+  z-index: -4;
+  scale: 100%;
+  margin-top: -3rem;
+}
+.article-3-container .article-3-content-section-2 {
+  border-top: 2px solid var(--navBackgroundColor);
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  height: 12rem;
+  justify-content: space-around;
+  margin-top: 2px;
+}
+.article-3-container .article-3-content-section-2 .article-3-content-section-2-text {
+  font-size: 0.9rem;
+  padding: var(--padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+.article-3-container .article-3-content-section-2 .article-3-content-section-2-text p {
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
+  font-size: var(--articleParagraph);
+}
+.article-3-container .article-3-content-section-2 .article-3-content-section-2-shape {
+  font-family: roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border-left: 2px solid var(--navBackgroundColor);
+}
+
+.article-3-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.article-3-buttons .article-3-content-button-1,
+.article-3-buttons .article-3-content-button-2 {
   font-family: Anton;
-  font-size: var(--jobOffersButtonsFontSize);
+  font-size: var(--articleButtonsFontSize);
   display: flex;
   justify-content: center;
   align-items: center;
   border-style: solid;
   border-width: 2px;
   color: var(--navBackgroundColor);
-  padding: 1rem;
-  width: 40%;
+  padding: 0.8rem;
+  width: 45%;
   background-color: var(--moistRed);
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
-  flex-wrap: wrap;
 }
-article .article-3-container .article-4-job-offers button:hover {
+.article-3-buttons .article-3-content-button-1:hover,
+.article-3-buttons .article-3-content-button-2:hover {
   background-color: var(--backgroundColor);
 }
 
@@ -1347,7 +1385,7 @@ footer {
 }
 footer .footer-container {
   background-color: var(--backgroundColor);
-  min-height: 100vh;
+  min-height: 80vh;
   margin-top: 2rem;
   padding: var(--padding2);
   display: flex;
@@ -1390,9 +1428,9 @@ footer .footer-container .footer-contact-form .footer-contact-form-header .foote
   position: relative;
 }
 footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape .contact-form-img {
-  transform: rotate(290deg);
+  transform: rotate(280deg);
   position: absolute;
-  width: 25rem;
+  width: 23rem;
   left: -7rem;
   top: -1rem;
   z-index: 1;
@@ -1473,56 +1511,112 @@ footer .footer-bottom-company-details .footer-bottom-company-info p {
   margin-left: -1rem;
   font-size: 0.8rem;
 }
+footer .footer-bottom-company-details .footer-bottom-company-logo img {
+  width: 5rem;
+}
 
 @media only screen and (min-width: 460px) {
   :root {
-    --h3Feature1: 5rem;
-    --h3Feature2: 5rem;
-    --h2Feature1: 1.1rem;
-    --h2Feature2: 1.1rem;
     --paragraphFeature1: 1.1rem;
     --paragraphFeature2: 1rem;
-    --articleH5: 3rem;
     --articleParagraph: 1rem;
     --articleButtonsFontSize: 1rem;
-    --h2HeroHeader: 2.3rem;
     --paragraphHeroHeader: 1.2rem;
   }
 }
 @media only screen and (min-width: 500px) {
-  hero .hero-container .background-circle-shape {
-    background-color: var(--lightBlue);
-    width: 40rem;
-    height: 40rem;
-    position: absolute;
-    border-radius: 100%;
-    overflow-x: hidden;
-    z-index: -1;
-    top: 6rem;
-    left: 20rem;
-    animation: bounce 3s ease-in 0s 1 normal forwards;
-  }
-}
-@media only screen and (min-width: 650px) {
   :root {
-    --h3Feature1: 5rem;
-    --h3Feature2: 5rem;
+    --h3Feature1: 4.8rem;
+    --h3Feature2: 4.8rem;
     --h2Feature1: 1.7rem;
-    --h2Feature2: 2.1rem;
-    --paragraphFeature1: 1.1rem;
-    --paragraphFeature2: 1.3rem;
-    --articleH5: 5rem;
-    --articleParagraph: 1.2rem;
+    --h2Feature2: 1.7rem;
+    --paragraphFeature1: 1.2rem;
+    --paragraphFeature2: 1.2rem;
+    --articleParagraph: 1rem;
     --articleButtonsFontSize: 1.5rem;
-    --h2HeroHeader: 2.3rem;
     --paragraphHeroHeader: 1.2rem;
   }
   hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
     scale: 55%;
-    top: -8rem;
+    top: -6rem;
   }
 }
-@media only screen and (min-width: 650px) and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
+  :root {
+    --articleParagraph: 1.2rem;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .content-slider {
+    width: 30vh;
+    height: 360px;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider {
+    height: 320px;
+    width: 40vh;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+    top: -4rem;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .mask {
+    overflow: hidden;
+    height: 120px;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider li {
+    width: 30vh;
+    height: 120px;
+    position: absolute;
+    top: -325px;
+    list-style: none;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider .quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    z-index: 4;
+    text-shadow: 2px 2px black;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider .source {
+    font-size: 20px;
+    text-align: right;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider li.anim1 {
+    animation: cycle 60s linear infinite;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider li.anim2 {
+    animation: cycle2 60s linear infinite;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider li.anim3 {
+    animation: cycle3 60s linear infinite;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider li.anim4 {
+    animation: cycle4 60s linear infinite;
+  }
+  hero .hero-content-bottom .hero-content-bottom-text .slider:hover li {
+    animation-play-state: paused;
+  }
+}
+@media only screen and (min-width: 800px) {
+  :root {
+    --h2Feature1: 2.2rem;
+    --h2Feature2: 2.2rem;
+    --paragraphFeature1: 1.4rem;
+    --paragraphFeature2: 1.4rem;
+    --articleParagraph: 1.4rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 3.6rem;
+    --paragraphHeroHeader: 1.5rem;
+    --lineBreakHeightSVG: 10rem;
+    --articleFrontText2: 5rem;
+    --paragraphJobOffers: 1.6rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    scale: 65%;
+    top: -8rem;
+  }
   hero .hero-container .background-circle-shape {
     opacity: 30%;
     background-color: var(--lightBlue);
@@ -1536,29 +1630,150 @@ footer .footer-bottom-company-details .footer-bottom-company-info p {
     left: 35rem;
     animation: bounce 3s ease-in 0s 1 normal forwards;
   }
+  hero .hero-container .background-triangle-shape {
+    width: 350px;
+    height: 350px;
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: var(--lightBlue);
+    position: absolute;
+    top: 29.1rem;
+    left: 3rem;
+  }
 }
-@media only screen and (min-width: 650px) and (min-width: 1024px) {
+@media only screen and (min-width: 800px) {
   :root {
-    --h3Feature1: 7rem;
-    --h3Feature2: 7rem;
-    --h2Feature1: 2.7rem;
-    --h2Feature2: 2.7rem;
-    --paragraphFeature1: 1.1rem;
-    --paragraphFeature2: 1.3rem;
-    --articleH5: 10rem;
-    --articleParagraph: 1.2rem;
+    --h2Feature1: 2.2rem;
+    --h2Feature2: 2.2rem;
+    --paragraphFeature1: 1.4rem;
+    --paragraphFeature2: 1.4rem;
+    --articleParagraph: 1.4rem;
     --articleButtonsFontSize: 1.5rem;
-    --h2HeroHeader: 2.3rem;
-    --paragraphHeroHeader: 1.2rem;
-    --articleBackgroundText: 20rem;
+    --h2HeroHeader: 3.6rem;
+    --paragraphHeroHeader: 1.5rem;
+    --lineBreakHeightSVG: 10rem;
+    --articleFrontText2: 5rem;
+    --paragraphJobOffers: 1.6rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .content-slider {
+    width: 30vh;
+    height: 360px;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider {
+    height: 320px;
+    width: 40vh;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+    top: -4rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .mask {
+    overflow: hidden;
+    height: 2000px;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider li {
+    width: 30vh;
+    height: 150px;
+    position: absolute;
+    top: -325px;
+    list-style: none;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider .quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    z-index: 4;
+    text-shadow: 2px 2px black;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .hero-content-bottom-image .hero-robot-img {
+    scale: 65%;
+    top: -8rem;
+  }
+  hero .hero-container .hero-content-bottom .background-circle-shape {
+    opacity: 30%;
+    background-color: var(--lightBlue);
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+    border-radius: 100%;
+    overflow-x: hidden;
+    z-index: -1;
+    top: 6rem;
+    left: 35rem;
+    animation: bounce 3s ease-in 0s 1 normal forwards;
+  }
+  hero .hero-container .hero-content-bottom .background-triangle-shape {
+    width: 350px;
+    height: 350px;
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: var(--lightBlue);
+    position: absolute;
+    top: 29.1rem;
+    left: 3rem;
+  }
+}
+@media only screen and (min-width: 800px) and (min-width: 1000px) {
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    scale: 65%;
+    top: -8rem;
+  }
+  hero .hero-container .background-circle-shape {
+    width: 60rem;
+    height: 60rem;
+    left: 40rem;
+  }
+  hero .hero-container .background-triangle-shape {
+    width: 450px;
+    height: 350px;
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: var(--lightBlue);
+    position: absolute;
+    top: 29.1rem;
+    left: 3rem;
+  }
+}
+@media only screen and (min-width: 800px) and (min-width: 1024px) {
+  :root {
+    --h3Feature1: 6rem;
+    --h3Feature2: 6rem;
+    --h2Feature1: 2.5rem;
+    --h2Feature2: 2.5rem;
+    --paragraphFeature1: 1.6rem;
+    --paragraphFeature2: 1.6rem;
+    --articleParagraph: 1.6rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 4.6rem;
+    --paragraphHeroHeader: 1.8rem;
+    --lineBreakHeightSVG: 10rem;
+    --articleFrontText2: 3rem;
+    --articleButtonsFontSize: 2rem;
+    --paragraphJobOffers: 1.6rem;
+    --h2HeroHeader: 3.5rem;
+    --paragraphHerowHeader: 3rem;
   }
   nav .mobile-navigation-container .mobile-navigation-content {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 2rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .left-side-nav {
+    margin-left: 2rem;
+    width: 20vh;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .left-side-nav .logo-middle-img {
+    margin-left: 1rem;
   }
   nav .mobile-navigation-container .mobile-navigation-content .desktop-menu {
     display: flex;
-    margin-left: 40vh;
+    justify-content: flex-end;
   }
   nav .mobile-navigation-container .mobile-navigation-content .desktop-menu a {
     font-family: Anton;
@@ -1568,536 +1783,536 @@ footer .footer-bottom-company-details .footer-bottom-company-info p {
     color: var(--moistRed);
     font-size: 1rem;
   }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu a:hover {
+    color: var(--backgroundColor);
+  }
   nav .mobile-navigation-container .mobile-navigation-content .burger {
     display: none;
   }
-  hero .hero-container .background-circle-shape {
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    scale: 80%;
+    top: -12rem;
+    margin-right: -50rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .content-slider {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 30vh;
+    height: 360px;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider {
+    height: 320px;
+    width: 50vh;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+    top: -4rem;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .mask {
+    overflow: hidden;
+    height: 2000px;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider li {
+    width: 50vh;
+    height: 150px;
+    position: absolute;
+    top: -325px;
+    list-style: none;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider .quote {
+    font-size: 2.2rem;
+    font-style: italic;
+    z-index: 4;
+    text-shadow: 2px 2px black;
+  }
+  hero .hero-container .hero-content-bottom .background-circle-shape {
+    opacity: 30%;
     background-color: var(--lightBlue);
-    width: 45rem;
-    height: 45rem;
+    width: 40rem;
+    height: 40rem;
     position: absolute;
     border-radius: 100%;
     overflow-x: hidden;
     z-index: -1;
-    top: 2rem;
-    left: 50rem;
+    top: 6rem;
+    left: 35rem;
     animation: bounce 3s ease-in 0s 1 normal forwards;
   }
+  hero .hero-container .hero-content-bottom .background-triangle-shape {
+    width: 350px;
+    height: 350px;
+    aspect-ratio: 1;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+    background: var(--lightBlue);
+    position: absolute;
+    top: 29.1rem;
+    left: 3rem;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  main .main-container .main-feature-3-container p {
+    width: 70%;
+  }
+  main .main-container .main-feature-3-container .burger {
+    display: none;
+  }
+  main .main-container .main-feature-3-container h2 {
+    font-size: 3rem;
+  }
+  main .main-container .main-feature-3-container .items {
+    grid-area: content;
+    display: flex;
+    gap: var(--gap);
+  }
+  main .main-container .main-feature-3-container .items::after {
+    content: "";
+    padding-inline-end: max(var(--gutter), (100vw - var(--size)) / 2 - var(--gutter));
+  }
+  main .main-container .main-feature-3-container .items > * {
+    display: grid;
+    place-content: center;
+    flex-shrink: 0;
+    inline-size: var(--size);
+    scroll-snap-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--color-fg);
+    border-style: solid;
+    height: 8rem;
+    box-shadow: var(--boxShadowSlideButtons);
+  }
+  main .main-container .main-feature-3-container .items > *:active {
+    background-color: var(--activeButton);
+  }
+  main .main-container .main-feature-3-container .items > * p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .header-image-content {
+    margin-top: -15rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: -4;
+    scale: 100%;
+    margin-right: -50rem;
+    margin-top: calc(-13rem + 5vh);
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3 {
+    margin-top: 5rem;
+    z-index: -2;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1 {
+    z-index: -2;
+    margin-top: -1rem;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-writing-text-2 {
+    text-align: right;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-image-content-2 {
+    margin-top: -5rem;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: -4;
+    scale: 100%;
+    margin-right: 50rem;
+    margin-top: calc(-20rem + 5vh);
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
+    margin-top: 5rem;
+    z-index: -2;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
+    z-index: -2;
+    margin-top: -1rem;
+  }
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-writing-text-3 {
+    text-align: left;
+  }
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-image-content-3 {
+    margin-top: -5rem;
+  }
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: -4;
+    scale: 100%;
+    margin-right: -50rem;
+    margin-top: calc(-20rem + 5vh);
+  }
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
+    margin-top: 5rem;
+    z-index: 6;
+  }
+  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
+    z-index: -7;
+    margin-top: -1rem;
+  }
+  footer .footer-bottom-company-details .footer-bottom-company-info {
+    margin-top: 4rem;
+    color: var(--lightBlue);
+  }
+  footer .footer-bottom-company-details .footer-bottom-company-info p {
+    margin-left: -1rem;
+    font-size: 1.3rem;
+  }
+  footer svg {
+    width: 500px;
+  }
+}
+@media only screen and (min-width: 800px) and (min-width: 1300px) {
+  :root {
+    --h3Feature1: 7rem;
+    --h3Feature2: 7rem;
+    --h2Feature1: 3rem;
+    --h2Feature2: 3rem;
+    --paragraphFeature1: 1.9rem;
+    --paragraphFeature2: 1.9rem;
+    --articleParagraph: 1.6rem;
+    --articleButtonsFontSize: 1.5rem;
+    --h2HeroHeader: 4.6rem;
+    --paragraphHeroHeader: 1.8rem;
+    --lineBreakHeightSVG: 10rem;
+    --articleFrontText2: 4rem;
+    --articleButtonsFontSize: 2rem;
+    --paragraphJobOffers: 1.6rem;
+    --h2HeroHeader: 6rem;
+    --paragraphHerowHeader: 3rem;
+  }
+  hero .hero-container h5 {
+    font-size: 3rem;
+  }
+  hero .hero-container .hero-content-bottom .content-slider {
+    width: 60vh;
+    height: 360px;
+  }
+  hero .hero-container .hero-content-bottom .slider {
+    height: 520px;
+    width: 80vh;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+    top: -4rem;
+  }
+  hero .hero-container .hero-content-bottom .mask {
+    overflow: hidden;
+    height: 320px;
+  }
+  hero .hero-container .hero-content-bottom .slider ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  hero .hero-container .hero-content-bottom .slider li {
+    width: 80vh;
+    height: 120px;
+    position: absolute;
+    top: -325px;
+    list-style: none;
+  }
+  hero .hero-container .hero-content-bottom .slider .quote {
+    font-size: 3.3rem;
+    font-style: italic;
+    z-index: 4;
+    text-shadow: 2px 2px black;
+  }
+  hero .hero-container .hero-content-bottom .slider .source {
+    font-size: 20px;
+    text-align: right;
+  }
+  hero .hero-container .hero-content-bottom .slider li.anim1 {
+    animation: cycle 60s linear infinite;
+  }
+  hero .hero-container .hero-content-bottom .slider li.anim2 {
+    animation: cycle2 60s linear infinite;
+  }
+  hero .hero-container .hero-content-bottom .slider li.anim3 {
+    animation: cycle3 60s linear infinite;
+  }
+  hero .hero-container .hero-content-bottom .slider li.anim4 {
+    animation: cycle4 60s linear infinite;
+  }
+  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
+    scale: 100%;
+    top: -12rem;
+    margin-right: -70rem;
+  }
+  hero .hero-container .background-circle-shape {
+    width: 60rem;
+    height: 60rem;
+    left: 60rem;
+  }
   hero .hero-container .background-triangle-shape {
-    width: 400px;
+    width: 780px;
     height: 450px;
     aspect-ratio: 1;
     -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
             clip-path: polygon(0 0, 100% 100%, 0 100%);
     background: var(--lightBlue);
     position: absolute;
-    top: 16.1rem;
-    left: 2.3rem;
+    top: 30rem;
+    left: 3rem;
   }
-  hero .hero-container .hero-content-top .hero-content-text {
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: 13rem;
+  nav .mobile-navigation-container .mobile-navigation-content {
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .left-side-nav {
+    margin-left: 2rem;
+    width: 20vh;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .left-side-nav .logo-middle-img {
+    margin-left: 1rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu a {
+    font-family: Anton;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 2rem;
+    color: var(--moistRed);
+    font-size: 1.5rem;
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .desktop-menu a:hover {
+    color: var(--backgroundColor);
+  }
+  nav .mobile-navigation-container .mobile-navigation-content .burger {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  main .main-container .main-feature-3-container .burger {
+    display: none;
+  }
+  main .main-container .main-feature-3-container h2 {
+    font-size: 3rem;
+  }
+  main .main-container .main-feature-3-container .items {
+    grid-area: content;
+    display: flex;
+    gap: var(--gap);
+  }
+  main .main-container .main-feature-3-container .items::after {
+    content: "";
+    padding-inline-end: max(var(--gutter), (100vw - var(--size)) / 2 - var(--gutter));
+  }
+  main .main-container .main-feature-3-container .items > * {
+    display: grid;
+    place-content: center;
+    flex-shrink: 0;
+    inline-size: var(--size);
+    scroll-snap-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+    background-color: var(--color-fg);
+    border-style: solid;
+    height: 8rem;
+    box-shadow: var(--boxShadowSlideButtons);
+  }
+  main .main-container .main-feature-3-container .items > *:active {
+    background-color: var(--activeButton);
+  }
+  main .main-container .main-feature-3-container .items > * p {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .header-image-content {
+    margin-top: -15rem;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    z-index: -4;
+    scale: 100%;
+    margin-right: calc(-50rem - 30vh);
+    margin-top: calc(-13rem - 10vh);
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3 {
+    margin-top: 5rem;
+    z-index: -2;
+  }
+  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1 {
+    z-index: -2;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-writing-text-2 {
+    text-align: right;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-image-content-2 {
+    margin-top: -5rem;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    z-index: -4;
+    scale: 100%;
+    margin-right: 60rem;
+    margin-top: calc(-20rem + 5vh);
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
+    margin-top: 5rem;
+    z-index: -2;
+  }
+  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
+    z-index: -2;
+    margin-top: -1rem;
+  }
+  footer {
+    overflow-x: hidden;
+  }
+  footer .footer-container {
+    background-color: var(--backgroundColor);
+    min-height: 100vh;
+    margin-top: 2rem;
+    padding: var(--padding2);
+    display: flex;
     flex-direction: column;
   }
-  hero .hero-container .hero-content-top .hero-content-text h2 {
-    width: 50%;
-    text-align: left;
+  footer .footer-container .footer-contact-form {
+    border: var(--navBackgroundColor);
+    border-style: solid;
+    border-width: 2px;
+    min-height: 40rem;
+    min-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: -2rem;
   }
-  hero .hero-container .hero-content-bottom {
+  footer .footer-container .footer-contact-form .footer-contact-form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--navBackgroundColor);
+    height: 5rem;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text {
+    width: 70%;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-text h2 {
+    color: var(--navBackgroundColor);
+    font-family: Anton;
+    font-weight: 300;
+    font-size: 2.3rem;
+    padding: var(--padding);
+    text-shadow: 2px 2px black;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape {
+    width: 30%;
+    height: 100%;
+    border-left: 2px solid var(--navBackgroundColor);
+    position: relative;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-header .footer-contact-form-header-shape .contact-form-img {
+    transform: rotate(280deg);
+    position: absolute;
+    width: 43rem;
+    left: -7rem;
+    top: -1rem;
+    z-index: 1;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form {
+    font-family: Roboto;
+    padding: var(--padding);
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form .footer-button-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backgroundColor);
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=text],
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Roboto;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit] {
+    font-family: Anton;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: var(--navBackgroundColor);
+    border-width: 2px;
+    color: var(--navBackgroundColor);
+    padding: 1rem;
+    width: 60%;
+    background-color: var(--moistRed);
+    box-shadow: var(--boxShadowSlideButtons);
+    cursor: pointer;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form textarea {
     margin-top: 2rem;
-    max-width: 100%;
+    width: 70%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    font-family: Roboto;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  footer .footer-bottom-company-details {
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider {
-    height: 320px;
-    width: 70rem;
-    margin: 40px auto 0;
-    overflow: visible;
-    position: relative;
-    top: -2rem;
+  footer .footer-bottom-company-details .footer-bottom-company-info {
+    color: var(--lightBlue);
   }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider li {
-    width: 60vh;
-    height: 320px;
-    position: absolute;
-    top: -325px;
-    list-style: none;
-  }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-text .mask {
-    overflow: hidden;
-    height: 320px;
-  }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-text .slider .quote {
-    text-wrap: wrap;
-    height: 20rem;
-    font-size: 2rem;
-    font-style: italic;
-    z-index: 4;
-  }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
-    margin-right: 20rem;
-    margin-top: -9rem;
-    scale: 85%;
-  }
-  main .main-container {
-    min-height: 50vh;
-  }
-  main .main-container .main-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  main .main-container .main-wrapper .main-feature-svg-break-2-shape {
-    display: none;
-  }
-  main .main-container .main-wrapper .main-feature-svg-break-2-line {
-    display: none;
-  }
-}
-@media only screen and (min-width: 650px) and (min-width: 1300px) {
-  :root {
-    --h3Feature1: 7rem;
-    --h3Feature2: 7rem;
-    --h2Feature1: 1.7rem;
-    --h2Feature2: 1.7rem;
-    --paragraphFeature1: 1.1rem;
-    --paragraphFeature2: 1.3rem;
-    --articleH5: 5.5rem;
-    --articleParagraph: 1.2rem;
-    --articleButtonsFontSize: 1.5rem;
-    --h2HeroHeader: 2.6rem;
-    --paragraphHeroHeader: 1.2rem;
-    --lineBreakHeightSVG: 10rem;
-    --articleBackgroundText: 20rem;
-    --articleFrontText2: 5rem;
-  }
-  nav .desktop-menu {
-    margin-left: 5rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .developers-img,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .developers-img,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .developers-img,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
-    width: 40rem;
-    position: absolute;
-    margin-top: -2rem;
-    margin-left: -4rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .publishers-img,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .publishers-img {
-    margin-top: -10rem;
-    margin-left: 45rem;
-    width: 45rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 .media-img,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .media-img {
-    width: 43rem;
-    margin-top: -8rem;
-    margin-left: -10rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h1,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h1,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h1,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h1,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h1,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h1,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h1,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h1,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h1,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h1,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h1,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h1,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h1,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h1,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h1,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h1,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h1,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h1,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h1,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h1,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h1,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h1,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h1,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h1,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h1,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
-    margin-top: -6rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h3,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h3,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h3,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h3,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h3,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h3,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h3,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h3,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h3,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h3,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
-    position: absolute;
-    font-size: var(--articleFrontText2);
-    color: var(--navBackgroundColor);
-    margin-top: 20rem;
-    margin-left: 32rem;
-    z-index: 45;
-    margin-top: 0;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-1 h5,
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-1 h5,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-1 h5,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h5,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-1 h5,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-1 h5,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-1 h5,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-1 h5,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-1 h5,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-1 h5,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
-    margin-left: 42rem;
-  }
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h5,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h5 {
+  footer .footer-bottom-company-details .footer-bottom-company-info p {
+    margin-left: -1rem;
+    font-size: 1.3rem;
     margin-left: 1rem;
-    z-index: 45;
   }
-  article .article-1-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-1-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-1-container .article-3-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-2-container .article-3-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-1-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-2-container-wrapper .article-2-content-section-1 h3,
-  article .article-3-container .article-3-container-wrapper .article-2-content-section-1 h3 {
-    margin-left: 2rem;
-    margin-top: 0;
-  }
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h5,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h5 {
-    margin-left: 34rem;
-    z-index: 45;
-  }
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-1 h3,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h3 {
-    margin-left: 34rem;
-    margin-top: 0;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-2,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-2,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-2,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-2,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-2,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-2,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-2,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-2,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-2,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-2,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-2,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-2,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-2,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-2,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-2,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-2,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-2,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 {
-    flex-direction: row-reverse;
-  }
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-1-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-2-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-1-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-1-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-2-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-2-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-3-container-wrapper .article-1-content-section-2 .article-3-content-section-2-text,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-1-content-section-2-text,
-  article .article-3-container .article-3-container-wrapper .article-3-content-section-2 .article-3-content-section-2-text {
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--navBackgroundColor);
-  }
-  article .article-1-container .article-buttons,
-  article .article-1-container .article-2-buttons,
-  article .article-1-container .article-3-buttons,
-  article .article-2-container .article-buttons,
-  article .article-2-container .article-2-buttons,
-  article .article-2-container .article-3-buttons,
-  article .article-3-container .article-buttons,
-  article .article-3-container .article-2-buttons,
-  article .article-3-container .article-3-buttons {
-    justify-content: flex-end;
-    gap: 5rem;
-  }
-  article .article-1-container .article-buttons .article-1-content-button-1,
-  article .article-1-container .article-buttons .article-1-content-button-2,
-  article .article-1-container .article-buttons .article-3-buttons,
-  article .article-1-container .article-2-buttons .article-1-content-button-1,
-  article .article-1-container .article-2-buttons .article-1-content-button-2,
-  article .article-1-container .article-2-buttons .article-3-buttons,
-  article .article-1-container .article-3-buttons .article-1-content-button-1,
-  article .article-1-container .article-3-buttons .article-1-content-button-2,
-  article .article-1-container .article-3-buttons .article-3-buttons,
-  article .article-2-container .article-buttons .article-1-content-button-1,
-  article .article-2-container .article-buttons .article-1-content-button-2,
-  article .article-2-container .article-buttons .article-3-buttons,
-  article .article-2-container .article-2-buttons .article-1-content-button-1,
-  article .article-2-container .article-2-buttons .article-1-content-button-2,
-  article .article-2-container .article-2-buttons .article-3-buttons,
-  article .article-2-container .article-3-buttons .article-1-content-button-1,
-  article .article-2-container .article-3-buttons .article-1-content-button-2,
-  article .article-2-container .article-3-buttons .article-3-buttons,
-  article .article-3-container .article-buttons .article-1-content-button-1,
-  article .article-3-container .article-buttons .article-1-content-button-2,
-  article .article-3-container .article-buttons .article-3-buttons,
-  article .article-3-container .article-2-buttons .article-1-content-button-1,
-  article .article-3-container .article-2-buttons .article-1-content-button-2,
-  article .article-3-container .article-2-buttons .article-3-buttons,
-  article .article-3-container .article-3-buttons .article-1-content-button-1,
-  article .article-3-container .article-3-buttons .article-1-content-button-2,
-  article .article-3-container .article-3-buttons .article-3-buttons {
-    width: 20rem;
-  }
-  article .article-1-container .article-2-buttons,
-  article .article-2-container .article-2-buttons,
-  article .article-3-container .article-2-buttons {
-    justify-content: flex-start;
-    gap: 5rem;
-  }
-  article .article-1-container .article-2-buttons .article-2-content-button-1,
-  article .article-1-container .article-2-buttons .article-2-content-button-2,
-  article .article-2-container .article-2-buttons .article-2-content-button-1,
-  article .article-2-container .article-2-buttons .article-2-content-button-2,
-  article .article-3-container .article-2-buttons .article-2-content-button-1,
-  article .article-3-container .article-2-buttons .article-2-content-button-2 {
-    width: 20rem;
-  }
-  article .article-1-container .article-3-buttons,
-  article .article-2-container .article-3-buttons,
-  article .article-3-container .article-3-buttons {
-    justify-content: flex-end;
-    gap: 5rem;
-  }
-  article .article-1-container .article-3-buttons .article-3-content-button-1,
-  article .article-1-container .article-3-buttons .article-3-content-button-2,
-  article .article-2-container .article-3-buttons .article-3-content-button-1,
-  article .article-2-container .article-3-buttons .article-3-content-button-2,
-  article .article-3-container .article-3-buttons .article-3-content-button-1,
-  article .article-3-container .article-3-buttons .article-3-content-button-2 {
-    width: 20rem;
-  }
-  article .article-1-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text,
-  article .article-2-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text,
-  article .article-3-container .article-2-container .article-2-content-section-2 .article-2-content-section-2-text {
-    width: 10%;
+  footer .footer-bottom-company-details .footer-bottom-company-logo img {
+    margin-top: 4rem;
+    width: 10rem;
   }
 }/*# sourceMappingURL=css.css.map */
