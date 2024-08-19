@@ -39,8 +39,8 @@ html {
   --paragraphFeature1: 0.9rem;
   --h2Feature2: 1.4rem;
   --paragraphFeature2: 4vw;
-  --articleH5: 10vw;
-  --articleParagraph: 0.8rem;
+  --articleH5: 11vw;
+  --articleParagraph: 1.3rem;
   --articleButtonsFontSize: 1.3rem;
   --paragraphHeroHeader: 1.1rem;
   --paragraphJobOffers: 1.2rem;
@@ -331,7 +331,7 @@ hero .hero-container .background-triangle-shape {
           clip-path: polygon(0 0, 100% 100%, 0 100%);
   background: var(--lightBlue);
   position: absolute;
-  top: 33.1rem;
+  top: 30.5rem;
   left: calc(1.2rem + 4vw);
   z-index: -1;
 }
@@ -365,6 +365,7 @@ hero .hero-container .hero-content-top .hero-content-text h2 {
   animation: fadeIn 2s ease 0s 1 normal forwards;
   text-transform: capitalize;
   text-shadow: 4px 4px black;
+  z-index: 300;
 }
 hero .hero-container .hero-content-top .hero-content-text p {
   text-align: center;
@@ -619,11 +620,10 @@ hero .hero-content-bottom .hero-content-bottom-image {
 }
 hero .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
   position: absolute;
-  top: -6.5rem;
+  top: -7.5rem;
   justify-content: center;
   scale: 50%;
-  margin-top: 1.2rem;
-  animation: animRobo 2s ease 0s 1 normal forwards;
+  margin-top: 0.5rem;
 }
 hero .hero-content-endless-scroll {
   margin-top: 2rem;
@@ -652,7 +652,6 @@ hero .hero-content-endless-scroll .slider {
   /*   background: white;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125); */
   height: 150px;
-  filter: brightness(0) invert(1);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -720,15 +719,14 @@ main .main-container {
 }
 main .main-container .background-circle-shape-2 {
   background-color: var(--lightBlue);
-  width: 25rem;
-  height: 25rem;
+  width: 35rem;
+  height: 35rem;
   position: absolute;
   border-radius: 100%;
   overflow-x: hidden;
   z-index: -1;
   margin-top: 2rem;
   margin-left: -13rem;
-  animation: bounce2 3s ease-in 0s 1 normal forwards;
 }
 main .main-container .main-feature-1-container {
   display: flex;
@@ -884,6 +882,9 @@ main .main-container .main-feature-3-container p {
   font-size: var(--paragraphFeature2);
   text-shadow: 2px 2px black;
 }
+main .main-container .main-feature-3-container .main-feature-3-wrapper button {
+  display: none;
+}
 main .main-container .scroll-x {
   max-width: 100%;
   overflow-x: auto;
@@ -899,10 +900,17 @@ main .main-container .wrapper {
   padding-block: var(--gutter);
   grid-template-columns: [full-start] 1fr [content-start] min(var(--size), 100% - var(--gutter) * 2) [content-end] 1fr [full-end];
 }
+main .main-container ul {
+  list-style-type: none;
+}
 main .main-container .items {
   grid-area: content;
   display: flex;
   gap: var(--gap);
+  cursor: pointer;
+}
+main .main-container .items a {
+  text-decoration: none;
 }
 main .main-container .items::after {
   content: "";
@@ -1045,17 +1053,17 @@ article .article-1-container .article-1-container-wrapper .developers-img {
   width: 25rem;
   display: flex;
   align-items: center;
-  top: 10rem;
+  top: 5rem;
   z-index: -4;
   scale: 100%;
-  margin-top: -3rem;
+  margin-top: -10rem;
 }
 article .article-1-container .article-1-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
-  min-width: 100%;
-  height: 12rem;
+  width: 100%;
+  height: 18rem;
   justify-content: space-around;
   margin-top: 2px;
 }
@@ -1065,7 +1073,6 @@ article .article-1-container .article-1-content-section-2 .article-1-content-sec
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
   height: 100%;
 }
 article .article-1-container .article-1-content-section-2 .article-1-content-section-2-text p {
@@ -1098,7 +1105,7 @@ article .article-buttons .article-1-content-button-2 {
   border-width: 2px;
   color: var(--navBackgroundColor);
   padding: 0.8rem;
-  width: 45%;
+  width: 40vw;
   background-color: var(--moistRed);
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
@@ -1110,8 +1117,7 @@ article .article-buttons .article-1-content-button-2:hover {
 article .article-buttons .article-1-content-button-2 {
   margin-right: 0.9rem;
 }
-
-.article-2-container {
+article .article-2-container {
   background-color: var(--backgroundColor);
   min-height: 100vh;
   margin-top: 2rem;
@@ -1120,7 +1126,7 @@ article .article-buttons .article-1-content-button-2 {
   flex-direction: column;
   position: relative;
 }
-.article-2-container .article-2-container-wrapper {
+article .article-2-container .article-2-container-wrapper {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
@@ -1132,7 +1138,7 @@ article .article-buttons .article-1-content-button-2 {
   flex-direction: column;
   justify-content: space-between;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 {
   display: flexbox;
   justify-content: center;
   align-items: center;
@@ -1140,15 +1146,15 @@ article .article-buttons .article-1-content-button-2 {
   z-index: 1;
   padding: var(--padding);
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 .headerwriting-text-2 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .headerwriting-text-2 {
   min-height: 10rem;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-image-content-2 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .header-image-content-2 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h1 {
   letter-spacing: 0.3rem;
   position: absolute;
   width: 100%;
@@ -1160,7 +1166,7 @@ article .article-buttons .article-1-content-button-2 {
   text-shadow: 1px 1px black;
   opacity: 50%;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h5 {
   top: -2rem;
   font-family: Anton;
   color: var(--moistRed);
@@ -1170,14 +1176,14 @@ article .article-buttons .article-1-content-button-2 {
   margin-bottom: 2rem;
   padding-top: 1rem;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 h3 {
   margin-top: -1rem;
   color: var(--navBackgroundColor);
   text-shadow: 2px 2px black;
   font-size: var(--h3Article);
   z-index: 62;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-1 .publishers-img {
   width: 30rem;
   display: flex;
   align-items: center;
@@ -1185,30 +1191,29 @@ article .article-buttons .article-1-content-button-2 {
   scale: 100%;
   margin-top: -2rem;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-2 {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 {
   border-top: 2px solid var(--navBackgroundColor);
   display: flex;
   flex-direction: row;
   min-width: 100%;
-  height: 10rem;
+  height: 18rem;
   justify-content: space-around;
   margin-top: 2px;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text {
   font-size: 0.9rem;
   padding: var(--padding);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
   height: 100%;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-text p {
   color: var(--navBackgroundColor);
   font-size: var(--articleParagraph);
   text-shadow: 2px 2px black;
 }
-.article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
+article .article-2-container .article-2-container-wrapper .article-2-content-section-2 .article-2-content-section-2-shape {
   font-family: roboto;
   display: flex;
   justify-content: center;
@@ -1216,16 +1221,197 @@ article .article-buttons .article-1-content-button-2 {
   width: 30%;
   border-left: 2px solid var(--navBackgroundColor);
 }
-.article-2-container .article-2-buttons {
+article .article-2-container .article-2-buttons {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.article-2-container .article-2-buttons .article-2-content-button-1,
-.article-2-container .article-2-buttons .article-2-content-button-2 {
+article .article-2-container .article-2-buttons .article-2-content-button-1,
+article .article-2-container .article-2-buttons .article-2-content-button-2 {
   font-family: Anton;
   font-size: var(--articleButtonsFontSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--navBackgroundColor);
+  padding: 1rem;
+  width: 40vw;
+  background-color: var(--moistRed);
+  box-shadow: var(--boxShadowSlideButtons);
+  cursor: pointer;
+}
+article .article-2-container .article-2-buttons .article-2-content-button-1:hover,
+article .article-2-container .article-2-buttons .article-2-content-button-2:hover {
+  background-color: var(--backgroundColor);
+}
+article .article-2-container .article-2-buttons .article-2-content-button-2 {
+  margin-right: 0.9rem;
+}
+article .article-3-container {
+  background-color: var(--activeButton);
+  min-height: 60vh;
+  margin-top: 2rem;
+  padding: var(--padding2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+}
+article .article-3-container .article-3-container-wrapper {
+  border: var(--navBackgroundColor);
+  border-style: solid;
+  border-width: 2px;
+  min-height: 80vh;
+  min-width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 {
+  position: relative;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  z-index: 1;
+  padding: var(--padding);
+}
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-writing-text-3 {
+  min-height: 20rem;
+}
+article .article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-image-content-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article .article-3-container .article-3-container-wrapper h1 {
+  letter-spacing: 0.3rem;
+  position: absolute;
+  width: 100%;
+  font-size: var(--articleBackgroundText);
+  color: var(--lightBlue);
+  font-weight: 700;
+  font-family: anton;
+  z-index: -2;
+  text-shadow: 1px 1px black;
+  opacity: 50%;
+}
+article .article-3-container .article-3-container-wrapper h5 {
+  top: -2rem;
+  font-family: Anton;
+  color: var(--moistRed);
+  font-size: var(--articleH5);
+  font-weight: 500;
+  text-shadow: 2px 2px black;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+article .article-3-container .article-3-container-wrapper h3 {
+  margin-top: -1rem;
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
+  font-size: var(--h3Article);
+  z-index: 62;
+}
+article .article-3-container .article-3-container-wrapper .media-img {
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10rem;
+  z-index: -4;
+  scale: 100%;
+  margin-top: -10rem;
+}
+article .article-3-container .article-3-content-section-2 {
+  border-top: 2px solid var(--navBackgroundColor);
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+  height: 18rem;
+  justify-content: space-around;
+  margin-top: 2px;
+}
+article .article-3-container .article-3-content-section-2 .article-3-content-section-2-text {
+  font-size: 0.9rem;
+  padding: var(--padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+article .article-3-container .article-3-content-section-2 .article-3-content-section-2-text p {
+  color: var(--navBackgroundColor);
+  text-shadow: 2px 2px black;
+  font-size: var(--articleParagraph);
+}
+article .article-3-container .article-3-content-section-2 .article-3-content-section-2-shape {
+  font-family: roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border-left: 2px solid var(--navBackgroundColor);
+}
+article .article-3-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+article .article-3-buttons .article-3-content-button-1,
+article .article-3-buttons .article-3-content-button-2 {
+  font-family: Anton;
+  font-size: var(--articleButtonsFontSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  color: var(--navBackgroundColor);
+  padding: 0.8rem;
+  width: 40vw;
+  background-color: var(--moistRed);
+  box-shadow: var(--boxShadowSlideButtons);
+  cursor: pointer;
+}
+article .article-3-buttons .article-3-content-button-1:hover,
+article .article-3-buttons .article-3-content-button-2:hover {
+  background-color: var(--backgroundColor);
+}
+article .article-4-job-offers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  min-height: 40vh;
+  padding: var(--padding);
+  margin-top: 2rem;
+  background-color: var(--backgroundColor);
+  border-style: solid;
+  border-color: var(--navBackgroundColor);
+}
+article .article-4-job-offers h2 {
+  color: var(--navBackgroundColor);
+  font-family: Anton;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px black;
+}
+article .article-4-job-offers p {
+  text-align: center;
+  color: var(--navBackgroundColor);
+  font-size: var(--paragraphJobOffers);
+}
+article .article-4-job-offers button {
+  font-family: Anton;
+  font-size: var(--jobOffersButtonsFontSize);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1237,146 +1423,9 @@ article .article-buttons .article-1-content-button-2 {
   background-color: var(--moistRed);
   box-shadow: var(--boxShadowSlideButtons);
   cursor: pointer;
+  flex-wrap: wrap;
 }
-.article-2-container .article-2-buttons .article-2-content-button-2 {
-  margin-right: 0.9rem;
-}
-
-.article-3-container {
-  background-color: var(--activeButton);
-  min-height: 60vh;
-  margin-top: 2rem;
-  padding: var(--padding2);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  margin-top: 7rem;
-  z-index: 3;
-}
-.article-3-container .article-3-container-wrapper {
-  border: var(--navBackgroundColor);
-  border-style: solid;
-  border-width: 2px;
-  min-height: 80vh;
-  min-width: 100%;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.article-3-container .article-3-container-wrapper .article-3-content-section-1 {
-  position: relative;
-  display: flexbox;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  z-index: 1;
-  padding: var(--padding);
-}
-.article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-writing-text-3 {
-  min-height: 20rem;
-}
-.article-3-container .article-3-container-wrapper .article-3-content-section-1 .header-image-content-3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.article-3-container .article-3-container-wrapper h1 {
-  letter-spacing: 0.3rem;
-  position: absolute;
-  width: 100%;
-  font-size: var(--articleBackgroundText);
-  color: var(--lightBlue);
-  font-weight: 700;
-  font-family: anton;
-  z-index: -2;
-  text-shadow: 1px 1px black;
-  opacity: 50%;
-}
-.article-3-container .article-3-container-wrapper h5 {
-  top: -2rem;
-  font-family: Anton;
-  color: var(--moistRed);
-  font-size: var(--articleH5);
-  font-weight: 500;
-  text-shadow: 2px 2px black;
-  margin-bottom: 2rem;
-  padding-top: 1rem;
-}
-.article-3-container .article-3-container-wrapper h3 {
-  margin-top: -1rem;
-  color: var(--navBackgroundColor);
-  text-shadow: 2px 2px black;
-  font-size: var(--h3Article);
-  z-index: 62;
-}
-.article-3-container .article-3-container-wrapper .media-img {
-  width: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 10rem;
-  z-index: -4;
-  scale: 100%;
-  margin-top: -3rem;
-}
-.article-3-container .article-3-content-section-2 {
-  border-top: 2px solid var(--navBackgroundColor);
-  display: flex;
-  flex-direction: row;
-  min-width: 100%;
-  height: 12rem;
-  justify-content: space-around;
-  margin-top: 2px;
-}
-.article-3-container .article-3-content-section-2 .article-3-content-section-2-text {
-  font-size: 0.9rem;
-  padding: var(--padding);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: 100%;
-}
-.article-3-container .article-3-content-section-2 .article-3-content-section-2-text p {
-  color: var(--navBackgroundColor);
-  text-shadow: 2px 2px black;
-  font-size: var(--articleParagraph);
-}
-.article-3-container .article-3-content-section-2 .article-3-content-section-2-shape {
-  font-family: roboto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  border-left: 2px solid var(--navBackgroundColor);
-}
-
-.article-3-buttons {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.article-3-buttons .article-3-content-button-1,
-.article-3-buttons .article-3-content-button-2 {
-  font-family: Anton;
-  font-size: var(--articleButtonsFontSize);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-style: solid;
-  border-width: 2px;
-  color: var(--navBackgroundColor);
-  padding: 0.8rem;
-  width: 45%;
-  background-color: var(--moistRed);
-  box-shadow: var(--boxShadowSlideButtons);
-  cursor: pointer;
-}
-.article-3-buttons .article-3-content-button-1:hover,
-.article-3-buttons .article-3-content-button-2:hover {
+article .article-4-job-offers button:hover {
   background-color: var(--backgroundColor);
 }
 
@@ -1385,7 +1434,7 @@ footer {
 }
 footer .footer-container {
   background-color: var(--backgroundColor);
-  min-height: 80vh;
+  min-height: 100vh;
   margin-top: 2rem;
   padding: var(--padding2);
   display: flex;
@@ -1477,7 +1526,7 @@ footer .footer-container .footer-contact-form .footer-contact-form-contact-form 
   cursor: pointer;
 }
 footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: var(--backgroundColor);
 }
 footer .footer-container .footer-contact-form .footer-contact-form-contact-form textarea {
   margin-top: 2rem;
@@ -1519,7 +1568,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   :root {
     --paragraphFeature1: 1.1rem;
     --paragraphFeature2: 1rem;
-    --articleParagraph: 1rem;
+    --articleParagraph: 1.3rem;
     --articleButtonsFontSize: 1rem;
     --paragraphHeroHeader: 1.2rem;
   }
@@ -1532,19 +1581,17 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     --h2Feature2: 1.7rem;
     --paragraphFeature1: 1.2rem;
     --paragraphFeature2: 1.2rem;
-    --articleParagraph: 1rem;
+    --articleParagraph: 1.5rem;
     --articleButtonsFontSize: 1.5rem;
     --paragraphHeroHeader: 1.2rem;
   }
   hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
     scale: 55%;
     top: -6rem;
+    z-index: 100;
   }
 }
 @media only screen and (min-width: 600px) {
-  :root {
-    --articleParagraph: 1.2rem;
-  }
   hero .hero-content-bottom .hero-content-bottom-text .content-slider {
     width: 30vh;
     height: 360px;
@@ -1605,50 +1652,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     --h2Feature2: 2.2rem;
     --paragraphFeature1: 1.4rem;
     --paragraphFeature2: 1.4rem;
-    --articleParagraph: 1.4rem;
-    --articleButtonsFontSize: 1.5rem;
-    --h2HeroHeader: 3.6rem;
-    --paragraphHeroHeader: 1.5rem;
-    --lineBreakHeightSVG: 10rem;
-    --articleFrontText2: 5rem;
-    --paragraphJobOffers: 1.6rem;
-  }
-  hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
-    scale: 65%;
-    top: -8rem;
-  }
-  hero .hero-container .background-circle-shape {
-    opacity: 30%;
-    background-color: var(--lightBlue);
-    width: 40rem;
-    height: 40rem;
-    position: absolute;
-    border-radius: 100%;
-    overflow-x: hidden;
-    z-index: -1;
-    top: 6rem;
-    left: 35rem;
-    animation: bounce 3s ease-in 0s 1 normal forwards;
-  }
-  hero .hero-container .background-triangle-shape {
-    width: 350px;
-    height: 350px;
-    aspect-ratio: 1;
-    -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
-            clip-path: polygon(0 0, 100% 100%, 0 100%);
-    background: var(--lightBlue);
-    position: absolute;
-    top: 29.1rem;
-    left: 3rem;
-  }
-}
-@media only screen and (min-width: 800px) {
-  :root {
-    --h2Feature1: 2.2rem;
-    --h2Feature2: 2.2rem;
-    --paragraphFeature1: 1.4rem;
-    --paragraphFeature2: 1.4rem;
-    --articleParagraph: 1.4rem;
+    --articleParagraph: 1.8rem;
     --articleButtonsFontSize: 1.5rem;
     --h2HeroHeader: 3.6rem;
     --paragraphHeroHeader: 1.5rem;
@@ -1719,7 +1723,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     left: 3rem;
   }
 }
-@media only screen and (min-width: 800px) and (min-width: 1000px) {
+@media only screen and (min-width: 1000px) {
   hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
     scale: 65%;
     top: -8rem;
@@ -1741,7 +1745,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     left: 3rem;
   }
 }
-@media only screen and (min-width: 800px) and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   :root {
     --h3Feature1: 6rem;
     --h3Feature2: 6rem;
@@ -1749,7 +1753,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     --h2Feature2: 2.5rem;
     --paragraphFeature1: 1.6rem;
     --paragraphFeature2: 1.6rem;
-    --articleParagraph: 1.6rem;
+    --articleParagraph: rem;
     --articleButtonsFontSize: 1.5rem;
     --h2HeroHeader: 4.6rem;
     --paragraphHeroHeader: 1.8rem;
@@ -1766,7 +1770,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   }
   nav .mobile-navigation-container .mobile-navigation-content .left-side-nav {
     margin-left: 2rem;
-    width: 20vh;
+    width: 40vh;
   }
   nav .mobile-navigation-container .mobile-navigation-content .left-side-nav .logo-middle-img {
     margin-left: 1rem;
@@ -1857,6 +1861,37 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   .mobile-menu {
     display: none;
   }
+  main .main-container .wrapper {
+    display: none;
+  }
+  main .main-container .main-feature-3-container .main-feature-3-wrapper .main-feature-3-how-we-work-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  main .main-container .main-feature-3-container .main-feature-3-wrapper .main-feature-3-how-we-work-buttons a {
+    text-decoration: none;
+  }
+  main .main-container .main-feature-3-container .main-feature-3-wrapper .main-feature-3-how-we-work-buttons button {
+    margin-top: 1rem;
+    display: flex;
+    width: 20vw;
+    padding: var(--padding);
+    text-align: left;
+    background-color: var(--color-fg);
+    font-family: Anton;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 2rem;
+    font-weight: 300;
+    text-shadow: 1px 1px black;
+    color: var(--navBackgroundColor);
+    box-shadow: var(--boxShadowSlideButtons);
+    cursor: pointer;
+  }
+  main .main-container .main-feature-3-container .main-feature-3-wrapper .main-feature-3-how-we-work-buttons button:hover {
+    background-color: var(--moistRed);
+  }
   main .main-container .main-feature-3-container p {
     width: 70%;
   }
@@ -1865,37 +1900,6 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   }
   main .main-container .main-feature-3-container h2 {
     font-size: 3rem;
-  }
-  main .main-container .main-feature-3-container .items {
-    grid-area: content;
-    display: flex;
-    gap: var(--gap);
-  }
-  main .main-container .main-feature-3-container .items::after {
-    content: "";
-    padding-inline-end: max(var(--gutter), (100vw - var(--size)) / 2 - var(--gutter));
-  }
-  main .main-container .main-feature-3-container .items > * {
-    display: grid;
-    place-content: center;
-    flex-shrink: 0;
-    inline-size: var(--size);
-    scroll-snap-align: center;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: white;
-    background-color: var(--color-fg);
-    border-style: solid;
-    height: 8rem;
-    box-shadow: var(--boxShadowSlideButtons);
-  }
-  main .main-container .main-feature-3-container .items > *:active {
-    background-color: var(--activeButton);
-  }
-  main .main-container .main-feature-3-container .items > * p {
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.2rem;
   }
   article .article-1-container .article-1-container-wrapper .article-1-content-section-1 .header-image-content {
     margin-top: -15rem;
@@ -1962,6 +1966,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   article .article-3-container .article-3-container-wrapper .article-3-content-section-1 h1 {
     z-index: -7;
     margin-top: -1rem;
+    line-height: 150px;
   }
   footer .footer-bottom-company-details .footer-bottom-company-info {
     margin-top: 4rem;
@@ -1975,7 +1980,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     width: 500px;
   }
 }
-@media only screen and (min-width: 800px) and (min-width: 1300px) {
+@media only screen and (min-width: 1300px) {
   :root {
     --h3Feature1: 7rem;
     --h3Feature2: 7rem;
@@ -2008,6 +2013,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     overflow: visible;
     position: relative;
     top: -4rem;
+    z-index: 300;
   }
   hero .hero-container .hero-content-bottom .mask {
     overflow: hidden;
@@ -2049,7 +2055,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
   }
   hero .hero-container .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
     scale: 100%;
-    top: -12rem;
+    top: -16rem;
     margin-right: -70rem;
   }
   hero .hero-container .background-circle-shape {
@@ -2235,11 +2241,50 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     z-index: 1;
   }
   footer .footer-container .footer-contact-form .footer-contact-form-contact-form {
+    display: flex;
     font-family: Roboto;
     padding: var(--padding);
     gap: 1rem;
     display: flex;
     flex-direction: column;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form #form #email {
+    background: #ffffff;
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    color: #2b2727;
+    font-style: 18px;
+    height: 3rem;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form #form .input-box {
+    position: relative;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form #text {
+    display: block;
+    color: #000;
+    font-weight: 300;
+    font-style: italic;
+    padding: 5px;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form #form.invalid .input-box::before {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+  }
+  footer .footer-container .footer-contact-form .footer-contact-form-contact-form #form.valid .input-box::before {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
   }
   footer .footer-container .footer-contact-form .footer-contact-form-contact-form .footer-button-container {
     margin-top: 5rem;
@@ -2276,7 +2321,7 @@ footer .footer-bottom-company-details .footer-bottom-company-logo img {
     cursor: pointer;
   }
   footer .footer-container .footer-contact-form .footer-contact-form-contact-form input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: var(--backgroundColor);
   }
   footer .footer-container .footer-contact-form .footer-contact-form-contact-form textarea {
     margin-top: 2rem;
