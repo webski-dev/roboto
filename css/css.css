@@ -390,7 +390,7 @@ hero .hero-content-bottom {
   border: var(--navBackgroundColor);
   border-style: solid;
   border-width: 2px;
-  min-height: 60vh;
+  min-height: 50vh;
   position: relative;
 }
 hero .hero-content-bottom .hero-content-bottom-text {
@@ -620,7 +620,7 @@ hero .hero-content-bottom .hero-content-bottom-image {
 }
 hero .hero-content-bottom .hero-content-bottom-image .hero-robot-img {
   position: absolute;
-  top: -7.5rem;
+  top: -9.5rem;
   justify-content: center;
   scale: 50%;
   margin-top: 0.5rem;
@@ -873,14 +873,12 @@ main .main-container .main-feature-3-container h2 {
   font-family: Anton;
   font-weight: 300;
   font-size: 2.2rem;
-  text-shadow: 2px 2px black;
 }
 main .main-container .main-feature-3-container p {
   color: var(--navBackgroundColor);
   font-weight: 200;
   padding-right: 2rem;
   font-size: var(--paragraphFeature2);
-  text-shadow: 2px 2px black;
 }
 main .main-container .main-feature-3-container .main-feature-3-wrapper button {
   display: none;

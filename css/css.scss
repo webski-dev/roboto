@@ -463,7 +463,7 @@ hero {
     border: var(--navBackgroundColor);
     border-style: solid;
     border-width: 2px;
-    min-height: 60vh;
+    min-height: 50vh;
 
     position: relative;
 
@@ -712,7 +712,7 @@ hero {
 
       .hero-robot-img {
         position: absolute;
-        top: -7.5rem;
+        top: -9.5rem;
         justify-content: center;
         scale: 50%;
         margin-top: 0.5rem;
@@ -1000,7 +1000,6 @@ main {
         font-family: Anton;
         font-weight: 300;
         font-size: 2.2rem;
-        text-shadow: 2px 2px black;
       }
 
       p {
@@ -1008,7 +1007,6 @@ main {
         font-weight: 200;
         padding-right: 2rem;
         font-size: var(--paragraphFeature2);
-        text-shadow: 2px 2px black;
       }
 
       .main-feature-3-wrapper {
